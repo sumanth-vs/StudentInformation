@@ -1,0 +1,138 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: Fira Code, Consolas;
+}
+
+html{
+	scroll-behavior: smooth;
+}
+
+header{
+	/* position: fixed; 
+	top: 0; 
+	width: 100%; */
+	background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)), url(../Assets/bmsce.jpg);
+	height: 100vh;
+	background-size: cover;
+	background-position: center;
+}
+
+
+
+ul{
+	float: right;
+	list-style-type: none;
+	margin-top: 27px;
+	margin-right: 5px;
+}
+
+ul li{
+	display: inline-block;
+}
+
+ul li a{
+	text-decoration: none;
+	color: #fff;
+	margin: 5px;
+	padding: 5px 20px;
+	border: .5px solid #fff;
+	transition: 0.35s ease;
+}
+
+ul li a:hover{
+	background-color:#fff;
+	color: #000;
+}
+
+ul li.active a{
+	background-color: #fff;
+	color: #000;
+}
+
+
+/* ul li select{
+	text-decoration: none;
+	height: 33px;
+	color: #fff;
+	background-color: #000;
+	margin: 5px;
+	padding: 5px 20px;
+	border: .5px solid #fff;
+	transition: 0.35s ease;
+}
+
+ul li select:hover{
+	background-color:#fff;
+	color: #000;
+}
+
+ul li select:focus{
+	text-emphasis: none;
+	text-decoration: none;
+} */
+
+/* .logo{
+	float: left;
+	width: 100px;
+	height: auto;
+}
+
+
+.logotext{
+	position:absolute;
+	left: 5%;
+	width: 100px;
+	height: 80px;
+	margin-top:10px;
+
+} */
+
+.main{
+	max-width: 1200px;
+	margin: auto;
+
+}
+
+
+/* .title{
+	position: absolute;
+	align-content: center;
+	top: 50%;
+	left: 40%;
+	transform: translate(-50%, -50%);
+} */
+
+
+.title h1{
+	position: absolute;
+	top: 30%;
+	left: 40%;
+    font-family: 'Bebas Neue', sans-serif;
+	color: #fff;
+	font-size: 120px;
+}
+
+.title h2{
+	position: absolute;
+	top: 50%;
+	left: 35%;
+    font-family: 'Bebas Neue', sans-serif;
+	color: #fff;
+	font-size: 40px;
+}
+
+.vision p{
+	font-family: 'Ma Shan Zheng', cursive;
+	font-size: 50px;
+}
+
+.descript p{
+	align-content: center;
+	position: absolute;
+	top: 300%;
+	word-wrap: break-word;
+}
+
+
+
