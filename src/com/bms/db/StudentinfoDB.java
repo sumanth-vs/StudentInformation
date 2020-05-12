@@ -7,6 +7,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import com.bms.bean.AcademicsBean;
 import com.bms.bean.ClassBean;
 import com.bms.bean.StudentBean;
 
@@ -19,7 +20,7 @@ public class StudentinfoDB {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","sampleweb","sampleweb");
-			System.out.println("inDB con=" + con);
+			//System.out.println("inDB con=" + con);
 		} 
 		catch (ClassNotFoundException e) {			
 			e.printStackTrace();
@@ -155,6 +156,7 @@ public class StudentinfoDB {
 			}
 			while(rs2.next()) {
 				usnCount = rs2.getInt(1);
+				//System.out.println("in db usnCOUNT = "+usnCount);
 			}
 			
 			if(unCount == 0 && usnCount ==0) {
@@ -189,9 +191,9 @@ public class StudentinfoDB {
 					pstmt5.setString(12, sb.getMother_mob());
 					pstmt5.setInt(13, sb.getClass_id());
 					
-					System.out.println("before inserting into std_t");
+					//System.out.println("before inserting into std_t");
 					int count2 = pstmt5.executeUpdate();
-					System.out.println("after inserting into std_t");					
+					//System.out.println("after inserting into std_t");					
 				}
 				else {
 					sb.setGenErr(1);
@@ -201,11 +203,17 @@ public class StudentinfoDB {
 			}
 			else {
 				sb.setGenErr(1);
-				sb.setUserNameErr(1);
+				if(unCount == 1) {
+					sb.setUserNameErr(1);
+				}
+				if(usnCount == 1) {
+					sb.setUsnErr(1);
+				}
+				
 			}
 			
 			
-			System.out.println("");
+			//System.out.println("");
 			
 			
 			
@@ -225,6 +233,38 @@ public class StudentinfoDB {
 		
 		String sql = "select";
 		return sBean;
+	}
+	
+	public ArrayList<AcademicsBean> getAcademicDetails(int stdID) {
+		
+		
+		Connection con = getConnection();
+		ArrayList<AcademicsBean> marksList = new ArrayList<AcademicsBean>();
+		
+		String sql = "select sub_name, cie1, cie2, cie3, lab from subject_t, stud_sub where stud_sub.sub_id = subject_t.sub_id and stud_sub.student_id = ?";
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, stdID);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				AcademicsBean aBean = new AcademicsBean();
+				aBean.setSubject(rs.getString(1));
+				aBean.setCie1(rs.getInt(2));
+				aBean.setCie2(rs.getInt(3));
+				aBean.setCie3(rs.getInt(4));
+				aBean.setLab(rs.getInt(5));
+				
+				marksList.add(aBean);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return marksList;
 	}
 	
 }

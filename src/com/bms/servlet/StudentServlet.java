@@ -55,9 +55,21 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("getStudentAttendance")) {
 				getStudentAttendance(request, response);
 			}
+			else if(action.equals("getAcademicDetails")) {
+				getAcademicDetails(request, response);
+			}
 		}		
 		else {			
 		}
+	}
+
+	private void getAcademicDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		//System.out.println("inside servlet getacademics");
+		StudentAction sa = new StudentAction();
+		sa.getAcademicDetails(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Academics.jsp");
+		rd.forward(request, response);
 	}
 
 	private final void getStudentAttendance(HttpServletRequest request, HttpServletResponse response) {
@@ -140,6 +152,7 @@ public class StudentServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		StudentAction sa = new StudentAction();
 		StudentBean sBean = sa.registerStudentDetails(request, response);
+		System.out.println("in servlet gen err flag =  "+sBean.getGenErr());
 		
 		if(sBean.getGenErr() == 1) {
 			rd = getServletContext().getRequestDispatcher("/NewUser.jsp");
@@ -147,8 +160,7 @@ public class StudentServlet extends HttpServlet {
 		else {
 			request.setAttribute("ub", new UserBean());
 			rd = getServletContext().getRequestDispatcher("/Login.jsp");
-		}
-		
+		}		
 		rd.forward(request, response);
 	}
 }

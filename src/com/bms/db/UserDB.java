@@ -17,7 +17,7 @@ public class UserDB {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			con = DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:xe","sampleweb","sampleweb");
-			System.out.println("inDB con=" + con);
+			//System.out.println("inDB con=" + con);
 		} 
 		catch (ClassNotFoundException e) {			
 			e.printStackTrace();

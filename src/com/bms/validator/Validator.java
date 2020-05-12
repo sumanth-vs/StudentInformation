@@ -8,7 +8,7 @@ public class Validator {
 	public boolean isName(String name) {
 
 		boolean flag = true;
-		String nameRegex = "[a-z]* [A-Z]*";
+		String nameRegex = "[a-z]*[A-Z]*[ ]*[a-z]*[A-Z]*[ ]*[a-z]*[A-Z]*";
 		Pattern p = Pattern.compile(nameRegex);
 
 		if(name == null) {
@@ -72,25 +72,27 @@ public class Validator {
 		return flag;
 	}
 	
-	public boolean isDOB(String DOB) {
-
+	public boolean isMOB(String mob) {
+		
 		boolean flag = true;
-		String emailPattern = "";
-		Pattern p = Pattern.compile(emailPattern);
+		
+		String mobPattern = "[1-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]";
+		Pattern p = Pattern.compile(mobPattern);
 
-		if(DOB == null) {
+		if(mob == null) {
 			flag = false;
 
 		}
 		else {
-			if(DOB.length() == 0) {
+			if(mob.length() == 0) {
 				flag = false;	
 			}
 			else {
-				Matcher m = p.matcher(DOB);
+				Matcher m = p.matcher(mob);
 				flag = m.matches();
 			}
 		}
-		return true;
+		
+		return flag;
 	}
 }

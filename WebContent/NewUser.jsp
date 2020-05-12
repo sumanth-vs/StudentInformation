@@ -2,8 +2,6 @@
 <%ArrayList cl = (ArrayList)request.getAttribute("cl"); %>
 <%Iterator itr = cl.iterator(); %>
 <%StudentBean sb = (StudentBean)request.getAttribute("sb"); %>
-<%=sb.getUsnErrMsg() %>
-<%=sb.getUserNameErrMsg() %>
 
 
 <!DOCTYPE html>
@@ -19,19 +17,43 @@
         <form class="box" action="/StudentInformation/StudentServlet" method="POST"">
         	<input type="hidden" name="action" value="registerStudentDetails">
             <h1>Enter Details</h1>
-            <input type="text" name="username" id="idd"placeholder="Username" required>
+            <input type="text" name="username" id="idd"placeholder="Username" value="<%=sb.getUsername() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getUserNameErr() == 1) %><%=sb.getUserNameErrMsg()%></font>
             <input type="password" name="password" id="idd"placeholder="Password" required>
-            <input type="text" name="stud_name" id="idd"placeholder="Name" required>
-            <input type="text" name="usn" id = "e1" placeholder="USN" required>
-            <input type="text" name="email" id = "e2" placeholder="Email" required>
-            <input type="text" name="mob" id = "user" placeholder="MOB" required>
-            <input type="text" name="address" id = "p1" placeholder="Address" required>
-            <input type="text" name="proc_name" id = "p2" placeholder="Proctor Name" required>
-            <input type="text" name="proc_mob" id = "pn" placeholder="Proctor Phone Number" required>
-            <input type="text" name="father_name" id = "pn" placeholder="Father Name" required>
-            <input type="text" name="father_mob" id = "pn" placeholder="Father Phone Number" required>
-            <input type="text" name="mother_name" id = "pn" placeholder="Mother Name" required>
-            <input type="text" name="mother_mob" id = "pn" placeholder="Mother Phone Number" required>
+            <br></br>
+            <input type="text" name="stud_name" id="idd"placeholder="Name" value="<%=sb.getName() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getNameErr() == 1) %><%=sb.getNameErrMsg()%></font>
+            <input type="text" name="usn" id = "e1" placeholder="USN" value="<%=sb.getUsn() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getUsnErr() == 1) %><%=sb.getUsnErrMsg()%></font>
+            <input type="text" name="email" id = "e2" placeholder="Email" value="<%=sb.getEmail() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getEmailErr() == 1) %><%=sb.getEmailErrMsg()%></font>
+            <input type="text" name="mob" id = "user" placeholder="MOB" value="<%=sb.getMob() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getMobErr() == 1) %><%=sb.getMobErrMsg()%></font>
+            <input type="text" name="address" id = "p1" placeholder="Address" value="<%=sb.getAddress() %>" required>
+            <br></br>
+            <input type="text" name="proc_name" id = "p2" placeholder="Proctor Name" value="<%=sb.getProc_name() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getProcNameeErr() == 1) %><%=sb.getProcNameErrMsg()%></font>
+            <input type="text" name="proc_mob" id = "pn" placeholder="Proctor Phone Number" value="<%=sb.getProc_mob() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getProcMobErr() == 1) %><%=sb.getProcMobErrMsg()%></font>
+            <input type="text" name="father_name" id = "pn" placeholder="Father Name" value="<%=sb.getFather_name() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getFatherNameErr() == 1) %><%=sb.getFatherNameErrMsg()%></font>
+            <input type="text" name="father_mob" id = "pn" placeholder="Father Phone Number" value="<%=sb.getFather_mob() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getFatherMobErr() == 1) %><%=sb.getFatherMobErrMsg()%></font>
+            <input type="text" name="mother_name" id = "pn" placeholder="Mother Name" value="<%=sb.getMother_name() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getMotherNameErr() == 1) %><%=sb.getMotherNameErrMsg()%></font>
+            <input type="text" name="mother_mob" id = "pn" placeholder="Mother Phone Number" value="<%=sb.getMother_mob() %>" required>
+            <br></br>
+            <font color="white"><%if(sb.getMotherMobErr() == 1) %><%=sb.getMotherMobErrMsg()%></font>
             <select id="cars" name="course_class_sec">
             	<%while(itr.hasNext()){ %>
             	

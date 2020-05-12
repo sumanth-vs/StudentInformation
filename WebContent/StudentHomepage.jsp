@@ -74,9 +74,9 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="marks.html">Show Student's Marks</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getAcademicDetails&stdID=<%=sb.getStdid()%>">Show Student's Marks</a></h2>
 				<p>
-					Students can access their records anywhere, anytime
+					Students can access their records anywhere, any time
 				</p>
 			</div>
 		</section>
