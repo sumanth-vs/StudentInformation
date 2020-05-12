@@ -175,7 +175,6 @@ public class StudentAction extends HttpServlet {
 	public void getStudentAttendance(HttpServletRequest request, HttpServletResponse response) {
 
 		int stdID = Integer.parseInt(request.getParameter("stdID"));
-		System.out.println("in action stdID = " + stdID);
 		StudentinfoDB db = new StudentinfoDB();
 		ArrayList<AcademicsBean> attendanceList = db.getStudentAttendance(stdID);
 		request.setAttribute("al",attendanceList);

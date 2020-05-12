@@ -149,7 +149,6 @@ public class StudentServlet extends HttpServlet {
 				StudentBean sb = new StudentBean();
 				sb.setName(ub.getName());
 				sb.setStdid(ub.getUserID());
-				System.out.println("name= "+sb.getName());
 				request.setAttribute("sb", sb);
 				rd = getServletContext().getRequestDispatcher("/StudentHomepage.jsp");
 			}
@@ -171,7 +170,6 @@ public class StudentServlet extends HttpServlet {
 		RequestDispatcher rd = null;
 		StudentAction sa = new StudentAction();
 		StudentBean sBean = sa.registerStudentDetails(request, response);
-		System.out.println("in servlet gen err flag =  "+sBean.getGenErr());
 		
 		if(sBean.getGenErr() == 1) {
 			rd = getServletContext().getRequestDispatcher("/NewUser.jsp");
