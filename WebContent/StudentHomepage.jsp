@@ -18,19 +18,10 @@
 					<a href = "#"><img class = "logotext"  src = "Assets\sip_logo.png"></a>
 				</div>
 					<ul>
-						<li>Welcome <%=sb.getName() %></li>
+						<font color="white"><li>Welcome <%=sb.getName() %></li></font>
 						<li class = "active"><a href="#">Home</a></li>
-						<li><a href="about.html">About</a></li>
+						<li><a href="/StudentInformation/StudentServlet?action=aboutPage">About</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=logout">Sign Out</a></li>
-						<!-- <li><a href="login.html">Login</a></li> -->
-						<!-- <li><img src="Assets/user.png" alt="Suraj Profile" 
-						style="max-width: 70px;
-						border-radius: 20px;
-						
-						position: absolute;
-						top: 3%;
-						left: 60%;
-						"></li> -->
 					</ul>
 			</div>			
 			
@@ -81,12 +72,13 @@
 			</div>
 		</section>
 
+
 		<section class="project-sec">
 			<div>
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="Projects.html">Projects, Assignments.</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getStudentProjects&stdID=<%=sb.getStdid()%>">Projects, Assignments.</a></h2>
 				<p>
 					Students can submit them all from one place
 				</p>
@@ -127,27 +119,6 @@
 				<p>&copy; 2019 SIP Labs Inc.</p>
 			</div>
 		</footer>
-
-
-
-		<!-- <section>
-			<div class = "title">
-				<h1>Student</h1>
-			</div>
-			<div class = "button">
-					<a href = "login.html" class = "btn">Sign Up</a>
-					<a href = "#" class = "btn">Sign In</a>
-			</div>
-			
-			<div class = "titlef">
-				<h1>Faculty</h1>
-			</div>
-			<div class = "buttonf">
-					<a href = "login.html" class = "btnf">Sign Up</a>
-					<a href = "#" class = "btnf">Sign In</a>
-			</div>
-		</section> -->
-
-
+		
 	</body>
 </html>

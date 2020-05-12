@@ -225,16 +225,39 @@ public class StudentinfoDB {
 	}
 
 
-
-	public StudentBean getStudentAttendance(int stdID) {
+	//ATTENDANCE
+	public ArrayList<AcademicsBean> getStudentAttendance(int stdID) {
 		
-		StudentBean sBean = new StudentBean();
+		System.out.println("in DB, stdID = " + stdID);
 		Connection con = getConnection();
+		ArrayList<AcademicsBean> attendanceList = new ArrayList<AcademicsBean>();
 		
-		String sql = "select";
-		return sBean;
+		String sql = "select sub_name, classes_cond, classes_attend from subject_t, stud_sub where stud_sub.sub_id = subject_t.sub_id and stud_sub.student_id = ?";
+		
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, stdID);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				
+				AcademicsBean aBean = new AcademicsBean();
+				aBean.setSubject(rs.getString(1));
+				aBean.setClass_cond(rs.getInt(2));
+				aBean.setClass_attend(rs.getInt(3));
+				
+				attendanceList.add(aBean);
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return attendanceList;
 	}
 	
+	// MARKS
 	public ArrayList<AcademicsBean> getAcademicDetails(int stdID) {
 		
 		

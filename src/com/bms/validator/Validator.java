@@ -5,10 +5,10 @@ import java.util.regex.Pattern;
 
 public class Validator {
 	
+	//Works
 	public boolean isName(String name) {
-
 		boolean flag = true;
-		String nameRegex = "[a-z]*[A-Z]*[ ]*[a-z]*[A-Z]*[ ]*[a-z]*[A-Z]*";
+		String nameRegex = "^[A-Za-z\\s]{1,}[\\.]{0,1}[A-Za-z\\s]{0,}$";
 		Pattern p = Pattern.compile(nameRegex);
 
 		if(name == null) {
@@ -27,8 +27,8 @@ public class Validator {
 		return flag;
 	}
 	
+	//Works
 	public boolean isEmail(String email) {
-
 		boolean flag = true;
 		String emailPattern = "^[_A-Za-z0-9-\\+]+(\\.[_A-Za-z0-9-]+)*@"
 				+ "[A-Za-z0-9-]+(\\.[A-Za-z0-9]+)*(\\.[A-Za-z]{2,})$";
@@ -49,7 +49,8 @@ public class Validator {
 		}
 		return flag;
 	}
-
+	
+	//Works
 	public boolean isUSN(String USN) {
 
 		boolean flag = true;
@@ -72,6 +73,7 @@ public class Validator {
 		return flag;
 	}
 	
+	//Works
 	public boolean isMOB(String mob) {
 		
 		boolean flag = true;

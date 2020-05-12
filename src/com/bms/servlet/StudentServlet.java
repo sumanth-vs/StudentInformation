@@ -58,9 +58,27 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("getAcademicDetails")) {
 				getAcademicDetails(request, response);
 			}
+			else if(action.equals("getStudentProjects")) {
+				getStudentProjects(request, response);
+			}
+			else if(action.equals("aboutPage")) {
+				aboutPage(request, response);
+			}
 		}		
 		else {			
 		}
+	}
+
+	private void aboutPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/About.jsp");
+		rd.forward(request, response);
+	}
+
+	private void getStudentProjects(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Projects.jsp");
+		rd.forward(request, response);
 	}
 
 	private void getAcademicDetails(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -72,12 +90,13 @@ public class StudentServlet extends HttpServlet {
 		rd.forward(request, response);
 	}
 
-	private final void getStudentAttendance(HttpServletRequest request, HttpServletResponse response) {
+	private final void getStudentAttendance(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		// if you are a newly registered student then your records are not available yet
 		StudentAction sa = new StudentAction();
-		StudentBean sb = sa.getStudentAttendance(request, response);
-		//request.setAttribute("sb", sb);
+		sa.getStudentAttendance(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Attendance.jsp");
+		rd.forward(request, response);
 	}
 
 	private final void logout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

@@ -51,7 +51,11 @@ public class StudentAction extends HttpServlet {
 	public StudentBean registerStudentDetails(HttpServletRequest request, HttpServletResponse response) {
 
 		StudentBean sb = new StudentBean();
-		//StudentBean sBean = null;
+		StudentinfoDB db = new StudentinfoDB();
+		
+		//Just ensuring that error is false initially
+		sb.setGenErr(0);
+		sb.setGenErrMsg("");
 
 		String username = request.getParameter("username");
 		String password = request.getParameter("password");
@@ -83,56 +87,69 @@ public class StudentAction extends HttpServlet {
 		sb.setMother_mob(mother_mob);
 		sb.setClass_id(course_class_sec);
 
+		
+		// Regex Validator
 		Validator va = new Validator();
 
-		if(!(va.isName(name) && va.isName(mother_name) && va.isName(father_name) && va.isName(proc_name))){
+		if(!va.isName(name)) {
 			sb.setGenErr(1);
 			sb.setNameErr(1);
-			sb.setNameErrMsg("Name must include only Alphabets");
+			sb.setNameErrMsg("Your Name is invalid");
 		}
-		if(!va.isUSN(usn)) {
+		if(!va.isName(proc_name)) {
 			sb.setGenErr(1);
-			sb.setUsnErr(1);
-			sb.setUsnErrMsg("Invalid USN Format");
+			sb.setNameErr(1);
+			sb.setNameErrMsg("Proctor Name is invalid");
+		}
+		if(!va.isName(father_name)) {
+			sb.setGenErr(1);
+			sb.setFatherNameErr(1);
+			sb.setFatherNameErrMsg("Father Name is invalid");
+		}
+		if(!va.isName(mother_name)) {
+			sb.setGenErr(1);
+			sb.setMotherNameErr(1);
+			sb.setMotherNameErrMsg("Mother Name is invalid");
 		}
 		if(!va.isEmail(email)) {
 			sb.setGenErr(1);
 			sb.setEmailErr(1);
-			sb.setEmailErrMsg("Email is not Valid");
+			sb.setEmailErrMsg("Email is invalid");
 		}
-		if(!va.isMOB(mother_mob)) {
+		if(!va.isUSN(usn)) {
 			sb.setGenErr(1);
-			sb.setMotherMobErr(1);
-			sb.setMotherMobErrMsg("Invalid Mother's Mobile Number");
-		}
-		if(!va.isMOB(father_mob)) {
-			sb.setGenErr(1);
-			sb.setFatherMobErr(1);
-			sb.setFatherMobErrMsg("Inavlid Father's Mobile Number");
-		}
-		if(!va.isMOB(proc_mob)) {
-			sb.setGenErr(1);
-			sb.setProcMobErr(1);
-			sb.setProcMobErrMsg("Invalid Proctorr Mobile Number");
+			sb.setUsnErr(1);
+			sb.setUsnErrMsg("USN is invalid");
 		}
 		if(!va.isMOB(mob)) {
 			sb.setGenErr(1);
 			sb.setMobErr(1);
-			sb.setMobErrMsg("Invalid Mobile Number");
+			sb.setMobErrMsg("Mobile Number is invalid");
+		}
+		if(!va.isMOB(proc_mob)) {
+			sb.setGenErr(1);
+			sb.setProcMobErr(1);
+			sb.setProcMobErrMsg("Proctor Mobile Number is invalid");
+		}
+		if(!va.isMOB(father_mob)) {
+			sb.setGenErr(1);
+			sb.setFatherMobErr(1);
+			sb.setFatherMobErrMsg("Father Mobile Number is invalid");
+		}
+		if(!va.isMOB(mother_mob)) {
+			sb.setGenErr(1);
+			sb.setMotherMobErr(1);
+			sb.setMotherMobErrMsg("Mother Mobile number is invalid");
 		}
 		
-		
-		if(va.isName(name) && va.isUSN(usn) && va.isEmail(email) && va.isMOB(mob) && va.isMOB(mother_mob) && va.isMOB(father_mob) && va.isMOB(proc_mob)) {
+		// All entered data is valid
+		else {
 			
-			//System.out.println("before callling db....in action");
-			StudentinfoDB db = new StudentinfoDB();
 			sb = db.registerStudentDetails(sb);
 			
-			
+			//This is to check for existing username/usn
 			if(sb.getGenErr() == 1) {
-				System.out.println("sb.getUSNErr = "+sb.getUsnErr());
 				if(sb.getUsnErr() == 1) {
-					System.out.println("usn already exists? = "+sb.getUsnErr());
 					sb.setUsnErrMsg("USN Already Exists");
 				}
 				if(sb.getUserNameErr() == 1) {
@@ -141,41 +158,36 @@ public class StudentAction extends HttpServlet {
 				ArrayList<ClassBean> cList = db.getCourse();
 				request.setAttribute("cl", cList);
 			}
-
 			else {
+				
 				ArrayList<ClassBean> cList = db.getCourse();
 				request.setAttribute("cl", cList);
-				sb.setGenErr(1);
-				sb.setGenErrMsg("Data Invalid");
 			}
 		}
-		else {
-			StudentinfoDB db = new StudentinfoDB();
-			ArrayList<ClassBean> cList = db.getCourse();
-			request.setAttribute("cl", cList);
-		}
-
+		
+		ArrayList<ClassBean> cList = db.getCourse();
+		request.setAttribute("cl", cList);
 		request.setAttribute("sb", sb);
 
 		return sb;
 	}
 
-	public StudentBean getStudentAttendance(HttpServletRequest request, HttpServletResponse response) {
+	public void getStudentAttendance(HttpServletRequest request, HttpServletResponse response) {
 
 		int stdID = Integer.parseInt(request.getParameter("stdID"));
+		System.out.println("in action stdID = " + stdID);
 		StudentinfoDB db = new StudentinfoDB();
-		StudentBean sBean = db.getStudentAttendance(stdID);
-
-		return sBean;
+		ArrayList<AcademicsBean> attendanceList = db.getStudentAttendance(stdID);
+		request.setAttribute("al",attendanceList);
 
 	}
-	
+
 	public void getAcademicDetails(HttpServletRequest request, HttpServletResponse response) {
-		
+
 		int stdID = Integer.parseInt(request.getParameter("stdID"));
 		StudentinfoDB db = new StudentinfoDB();
 		ArrayList<AcademicsBean> marksList = db.getAcademicDetails(stdID);
 		request.setAttribute("ml",marksList);
-	
+
 	}
 }

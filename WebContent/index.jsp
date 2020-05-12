@@ -16,16 +16,7 @@
 				</div>
 					<ul>
 						<li class = "active"><a href="#">Home</a></li>
-						<li><a href="about.html">About</a></li>
-						<!-- <li>
-							<select>
-								<option value="services">Services</option>
-								<option value="volvo">Attendance</option>
-								<option value="saab">Scores</option>
-								<option value="opel">Assignments</option>
-								<option value="audi">Records</option>
-							  </select>
-						</li> -->
+						<li><a href="/StudentInformation/StudentServlet?action=aboutPage">About</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=getLoginPage">Login</a></li>
 					</ul>
 			</div>			
