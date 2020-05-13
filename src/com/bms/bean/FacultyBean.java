@@ -14,16 +14,17 @@ public class FacultyBean {
 	private String student_name = "";
 	private int classes_cond;
 	private int classes_attend;
-	private int cie1;
+	// Change these to double
+	private double cie1;
 	private int cie2;
 	private int cie3;
 	private int lab;
 	
 	
-	public int getCie1() {
+	public double getCie1() {
 		return cie1;
 	}
-	public void setCie1(int cie1) {
+	public void setCie1(double cie1) {
 		this.cie1 = cie1;
 	}
 	public int getCie2() {

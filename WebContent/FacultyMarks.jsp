@@ -1,7 +1,7 @@
 <%@ page language="java" import="com.bms.bean.*, java.util.*"%>
 <%ArrayList<FacultyBean> attList = (ArrayList<FacultyBean>)request.getAttribute("marksL"); %>
 <%Iterator itr = attList.iterator(); %>
-<%UserBean ub = (UserBean) session.getAttribute("ub"); %>
+<%FacultyBean fb = (FacultyBean)request.getAttribute("fb"); %>
 
 <!DOCTYPE html>
 <html>
@@ -11,17 +11,12 @@
     <style>
         body{
             background-color: black;
-
         }
-
-
-
         table {
             margin: 75px;
             border-collapse: collapse;
             width: 90%;
         }
-
         th,
         td {
             color: white;
@@ -49,7 +44,7 @@
     
     <div style="margin: 80px;">
         <h2 style="font-family: Helvetica; color: white; position: absolute; top: 57%;">
-            Semester : <%=ub.getSem() %> | Section : <%=ub.getSection() %> |Branch : <%=ub.getCourse() %>
+            Semester : <%=fb.getSem() %> | Section : <%=fb.getSection() %> |Branch : <%=fb.getCourse() %>
         </h2>
     </div>
 
@@ -66,13 +61,13 @@
                 <th>Edit</th>
             </tr>
             <%while(itr.hasNext()){ %>
-			<%FacultyBean fb = (FacultyBean)itr.next(); %>
+			<%FacultyBean fb1 = (FacultyBean)itr.next(); %>
             <tr>
-                <td><%=fb.getStudent_name() %></td>
-                <td><%=fb.getCie1() %></td>
-                <td><%=fb.getCie2() %></td>
-                <td><%=fb.getCie3() %></td>
-                <td><%=fb.getLab() %></td>
+                <td><%=fb1.getStudent_name() %></td>
+                <td><%=fb1.getCie1() %></td>
+                <td><%=fb1.getCie2() %></td>
+                <td><%=fb1.getCie3() %></td>
+                <td><%=fb1.getLab() %></td>
                 <td>best of 3 + lab</td>
                 <td><a href="/StudentInformation/StudentServlet?action=editFacultyMarks">Edit</a></td>           
             </tr>

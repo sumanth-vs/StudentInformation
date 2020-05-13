@@ -110,9 +110,14 @@ public class FacultyDB {
 				FacultyBean fb = new FacultyBean();
 				fb.setStudent_id(rs.getInt(1));
 				fb.setStudent_name(rs.getString(2));
-				fb.setCie1(rs.getInt(3));
+				
+				double cie1 = rs.getDouble(3);
+				System.out.println("rs.getInt for cie1 = "+cie1);
+				fb.setCie1(cie1);
+				
 				fb.setCie2(rs.getInt(4));
 				fb.setCie3(rs.getInt(5));
+				fb.setLab(rs.getInt(6));
 				
 				facMarksList.add(fb);
 			}
@@ -123,5 +128,28 @@ public class FacultyDB {
 		}
 		
 		return facMarksList;
+	}
+	
+	public FacultyBean getClassDetails(int class_id) {
+		
+		Connection con = getConnection();
+		FacultyBean fb = new FacultyBean();
+		String sql = "select semester, section, course from class_t where class_t.class_id = ?";
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, class_id);			
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				fb.setSem(rs.getString(1));
+				fb.setSection(rs.getString(2));
+				fb.setCourse(rs.getString(3));
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		
+		return fb;
 	}
 }

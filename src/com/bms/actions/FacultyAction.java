@@ -50,4 +50,13 @@ public class FacultyAction extends HttpServlet{
 		
 				
 	}
+	
+	public void getClassDetails(HttpServletRequest request, HttpServletResponse response) {
+		
+		int class_id = Integer.parseInt(request.getParameter("classID"));
+		FacultyDB db = new FacultyDB();
+		FacultyBean fb = db.getClassDetails(class_id);
+		
+		request.setAttribute("fb", fb);
+	}
 }

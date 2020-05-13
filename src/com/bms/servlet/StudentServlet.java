@@ -164,6 +164,7 @@ public class StudentServlet extends HttpServlet {
 
 		FacultyAction fa = new FacultyAction();
 		fa.getFacultyMarks(request, response);
+		fa.getClassDetails(request, response);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyMarks.jsp");
 		rd.forward(request, response);
 	}
