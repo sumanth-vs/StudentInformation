@@ -8,6 +8,10 @@ public class UserBean {
 	private String password = "";
 	private int userFlag;
 	private String name = "";
+	private String usn = "";
+	private String sem = "";
+	private String section = "";
+	private String course = "";
 	
 	public String getName() {
 		return name;
@@ -90,5 +94,28 @@ public class UserBean {
 	public void setUserFlag(int userFlag) {
 		this.userFlag = userFlag;
 	}
-	
+	public String getUsn() {
+		return usn;
+	}
+	public void setUsn(String usn) {
+		this.usn = usn;
+	}
+	public String getSem() {
+		return sem;
+	}
+	public void setSem(String sem) {
+		this.sem = sem;
+	}
+	public String getSection() {
+		return section;
+	}
+	public void setSection(String section) {
+		this.section = section;
+	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}	
 }

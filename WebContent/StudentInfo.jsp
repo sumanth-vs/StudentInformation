@@ -35,7 +35,7 @@
 </head>
 
 <body>
-	<h6 style= "color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;"><a href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=sb.getStdid()%>">Back To Home Page</a></h6>
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=sb.getStdid()%>">Back To Home Page</a></h6>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">View All Your Details</h1>
     <div>
         <img style="max-width: 350px; position: absolute; left: 37.3%; border-radius: 25px" src="Assets/user.png" alt="SurajFail">

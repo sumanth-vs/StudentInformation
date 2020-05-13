@@ -16,8 +16,11 @@
     <body>
         <header>
 			<div class = "main">
+				<!-- <div class = "logo">
+					<img class = "logoimage"  src = "Assets\sip_logo.png">
+				</div> -->
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="/StudentInformation/StudentServlet?action=backToFacultyHomepage">Home</a></li>
 					<li class = "active"><a href="#">About</a></li>
 					
                 </ul>

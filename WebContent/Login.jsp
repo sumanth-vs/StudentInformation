@@ -2,7 +2,6 @@
 <%UserBean ub = (UserBean)request.getAttribute("ub"); %>
 
 
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,7 +21,7 @@
             <%if(ub.getGenErrFlag() == 1) %>
             <%=ub.getGenErrMsg() %>
             <br></br>
-            <a href="forgotpassword.html">Forgot Password?</a>
+            <a href="/StudentInformation/StudentServlet?action=forgotPassword">Forgot Password?</a>
             
             <input type="submit" name="" placeholder="Login" />
         </form>

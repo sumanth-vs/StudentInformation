@@ -1,9 +1,9 @@
-<%@ page language="java" import="com.bms.bean.AcademicsBean, java.util.*"%>
+<%@ page language="java" import="com.bms.bean.*, java.util.*"%>
 <%ArrayList<AcademicsBean> marksList = (ArrayList<AcademicsBean>)request.getAttribute("ml"); %>
 <%Iterator itr = marksList.iterator(); %>
+<%UserBean ub = (UserBean) session.getAttribute("ub");%>
 
 
-<!DOCTYPE html>
 <html>
 
 <head>
@@ -11,17 +11,12 @@
     <style>
         body{
             background-color: black;
-
         }
-
-
-
         table {
             margin: 75px;
             border-collapse: collapse;
             width: 90%;
         }
-
         th,
         td {
             color: white;
@@ -36,6 +31,7 @@
 </head>
 
 <body>
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>">Back To Home Page</a></h6>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">Monitor Your Marks</h1>
     <div>
         <img style="max-width: 250px; position: absolute; left: 70%; border-radius: 20px" src="Assets/user.png" alt="SurajFail">
@@ -49,7 +45,7 @@
     
     <div style="margin: 80px;">
         <h3 style="font-family: Helvetica; color: white; position: absolute; top: 50%;">
-            Semester : III | Branch : Computer Science and Engineering | USN : 1BM18CS113
+            Semester : <%=ub.getSem() %> | Section : <%=ub.getSection() %> | Branch : <%=ub.getCourse() %> | USN : <%=ub.getUsn() %> 
         </h3>
     </div>
 

@@ -17,7 +17,7 @@
         <header>
 			<div class = "main">
 				<ul>
-					<li><a href="#">Home</a></li>
+					<li><a href="/StudentInformation/StudentServlet?action=backToHomepage">Home</a></li>
 					<li class = "active"><a href="#">About</a></li>
 					
                 </ul>

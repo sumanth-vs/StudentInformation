@@ -42,10 +42,9 @@ public class UserDB {
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
 			PreparedStatement pstmt1 = con.prepareStatement(sql1);
-			PreparedStatement pstmt2 = con.prepareStatement("select fac_name from faculty_t where fac_id = ?");
-			PreparedStatement pstmt3 = con.prepareStatement("select student_name from stud_t where student_id = ?");
+			PreparedStatement pstmt2 = con.prepareStatement("select fac_name, fac_id from faculty_t where fac_id = ?");
+			PreparedStatement pstmt3 = con.prepareStatement("select student_name, usn, semester, section, course from stud_t s, class_t c where s.class_id = c.class_id and s.student_id = ?");
 			
-			System.out.println("indb un = " + ub.getUserName());
 			
 			pstmt.setString(1,  ub.getUserName());
 			pstmt.setString(2, ub.getPassword());
@@ -79,22 +78,55 @@ public class UserDB {
 					
 					while(rs2.next()) {
 						ub.setName(rs2.getString(1));
+						ub.setUserID(rs2.getInt(2));
 					}
 				}
 				else if(user_type == 3) {
-					System.out.println("student id = "+ub.getUserID());
+					
 					pstmt3.setInt(1,  ub.getUserID());
 					rs2 = pstmt3.executeQuery();
 					
 					while(rs2.next()) {
 						ub.setName(rs2.getString(1));
-					}
-					System.out.println("in db name = "+ub.getName());
+						ub.setUsn(rs2.getString(2));
+						ub.setSem(rs2.getString(3));
+						ub.setSection(rs2.getString(4));
+						ub.setCourse(rs2.getString(5));
+					}					
 				}
 			}
 			
 		} catch (SQLException e) {
 			
+			e.printStackTrace();
+		}
+		return ub;
+	}
+
+	public UserBean checkForgotUsername(String username) {
+		
+		Connection con = getConnection();		
+		String sql = "select count(user_id) from user_t where user_name = ?";
+		UserBean ub = new UserBean();
+		
+		int count = 1;
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				count = rs.getInt(1);
+			}
+			
+			if(count == 0) {
+				ub.setGenErrFlag(1);
+			}
+			else {
+				ub.setGenErrFlag(0);
+			}
+			
+		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		return ub;

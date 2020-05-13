@@ -18,7 +18,7 @@
 					<a href = "#"><img class = "logotext"  src = "Assets\sip_logo.png"></a>
 				</div>
 					<ul>
-						<font color="white"><li>Welcome <%=sb.getName() %></li></font>
+						<li><a href="#">Welcome <%=sb.getName() %></a></li>
 						<li class = "active"><a href="#">Home</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=aboutPage">About</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=logout">Sign Out</a></li>

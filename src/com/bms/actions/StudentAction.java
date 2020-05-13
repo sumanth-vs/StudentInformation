@@ -1,10 +1,12 @@
 package com.bms.actions;
 
 import java.util.ArrayList;
+import java.util.Hashtable;
 
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 
 import com.bms.bean.AcademicsBean;
 import com.bms.bean.ClassBean;
@@ -17,7 +19,7 @@ import com.bms.validator.Validator;
 
 
 public class StudentAction extends HttpServlet {
-
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -178,15 +180,13 @@ public class StudentAction extends HttpServlet {
 		StudentinfoDB db = new StudentinfoDB();
 		ArrayList<AcademicsBean> attendanceList = db.getStudentAttendance(stdID);
 		request.setAttribute("al",attendanceList);
-
 	}
 
 	public void getAcademicDetails(HttpServletRequest request, HttpServletResponse response) {
 
 		int stdID = Integer.parseInt(request.getParameter("stdID"));
 		StudentinfoDB db = new StudentinfoDB();
-		ArrayList<AcademicsBean> marksList = db.getAcademicDetails(stdID);
+		ArrayList<AcademicsBean> marksList = db.getAcademicDetails(stdID);			
 		request.setAttribute("ml",marksList);
-
 	}
 }

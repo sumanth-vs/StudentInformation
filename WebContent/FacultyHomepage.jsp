@@ -1,23 +1,27 @@
-<!DOCTYPE html>
+<%@ page language="java" import="com.bms.bean.*, java.util.*"%>
+<%UserBean ub = (UserBean) session.getAttribute("ub");%>
+
+    
+    <!DOCTYPE html>
 <html>
 	<head>
 		<title>Student Information Portal</title>
 		<link rel="icon" href="Assets/sip_logo_fav.gif" type="image/gif" sizes="16x16">
 		<link rel="stylesheet" type ="text/css" href="CSS/mainStyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">	
-	</head>
+		<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">	</head>
 
 	<body>
 		<header>
 			<div class = "main">
 				<div class = "logo">
-					<img class = "logotext"  src = "Assets\sip_logo.png">
+					<a href = "#"><img class = "logotext"  src = "Assets\sip_logo.png"></a>
 				</div>
 					<ul>
+						<li class = "active"><a href="#">Welcome, <%=ub.getName() %></a></li>
 						<li class = "active"><a href="#">Home</a></li>
-						<li><a href="/StudentInformation/StudentServlet?action=aboutPageNoLogin">About</a></li>
-						<li><a href="/StudentInformation/StudentServlet?action=getLoginPage">Login</a></li>
+						<li><a href="/StudentInformation/StudentServlet?action=aboutPageFaculty">About</a></li>
+						<li><a href="/StudentInformation/StudentServlet?action=logout">Sign Out</a></li>
 					</ul>
 			</div>			
 			
@@ -47,7 +51,7 @@
 				<img src="Assets\attendace_img.jpg">
 			</div>
 			<div class="attendance">
-				<h2><a href="/StudentInformation/StudentServlet?action=getLoginPage">Maintain and Track Attendance</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getFacultyClassDetails&facID=<%=ub.getUserID()%>">Maintain and Track Attendance</a></h2>
 				<p>
 					SIP makes it incredibly easy to update the attendance for each class.
 					It puts this vital information at the fingertips of students.
@@ -61,9 +65,9 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="/StudentInformation/StudentServlet?action=getLoginPage">Show Student's Marks</a></h2>
+				<h2><a href="marks_t.html">Show Student's Marks</a></h2>
 				<p>
-					Students can access their records anywhere, anytime
+					Students can access their records anywhere, any time
 				</p>
 			</div>
 		</section>
@@ -73,27 +77,12 @@
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="/StudentInformation/StudentServlet?action=getLoginPage">Projects, Assignments.</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getStudentProjects">Projects, Assignments.</a></h2>
 				<p>
 					Students can submit them all from one place
 				</p>
 			</div>
 		</section>
-
-
-
-		<section class="complete-stud-sec">
-				<div>
-					<img class = "complete-stud-img" src="Assets/complete-student-records.webp">
-				</div>
-				<div class="complete-stud">
-					<h2><a href="/StudentInformation/StudentServlet?action=getLoginPage">Complete Student Details</a></h2>
-					<p>
-						Complete Student Information at your fingertips
-					</p>
-				</div>
-			</section>
-
 
 
 		<footer>
@@ -115,26 +104,6 @@
 			</div>
 		</footer>
 
-
-
-		<!-- <section>
-			<div class = "title">
-				<h1>Student</h1>
-			</div>
-			<div class = "button">
-					<a href = "login.html" class = "btn">Sign Up</a>
-					<a href = "#" class = "btn">Sign In</a>
-			</div>
-			
-			<div class = "titlef">
-				<h1>Faculty</h1>
-			</div>
-			<div class = "buttonf">
-					<a href = "login.html" class = "btnf">Sign Up</a>
-					<a href = "#" class = "btnf">Sign In</a>
-			</div>
-		</section> -->
-
-
 	</body>
 </html>
+    

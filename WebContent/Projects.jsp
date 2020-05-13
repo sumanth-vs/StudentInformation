@@ -1,6 +1,6 @@
-<%@ page language="java"%>
+<%@ page language="java" import="com.bms.bean.*"%>
 
-    
+<%UserBean ub = (UserBean) session.getAttribute("ub");%>    
     <!DOCTYPE html>
 <html>
 <head>

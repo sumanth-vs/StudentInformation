@@ -39,5 +39,18 @@ public class UserAction extends HttpServlet{
 		return uBean;
 	}
 
+	public UserBean checkForgotUsername(HttpServletRequest request, HttpServletResponse response) {
+		
+		String username = request.getParameter("username");
+		UserDB db = new UserDB();
+		UserBean ub = db.checkForgotUsername(username);
+		
+		if(ub.getGenErrFlag() == 1) {
+			ub.setGenErrMsg("UserName does not exist");
+		}
+		
+		return ub;
+	}
+
 
 }
