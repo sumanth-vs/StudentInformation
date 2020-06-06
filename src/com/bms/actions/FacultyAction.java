@@ -59,4 +59,34 @@ public class FacultyAction extends HttpServlet{
 		
 		request.setAttribute("fb", fb);
 	}
+
+	public ArrayList<FacultyBean> addFacultyMarks(HttpServletRequest request, HttpServletResponse response) {
+		
+		int class_ID = Integer.parseInt(request.getParameter("classID"));
+		int sub_ID = Integer.parseInt(request.getParameter("subID"));
+		FacultyDB db = new FacultyDB();
+		
+		ArrayList<FacultyBean> marksList = db.addFacultyMarks(class_ID, sub_ID);
+		request.setAttribute("addMarksL", marksList);
+		
+		return marksList;
+	}
+
+	public ArrayList<FacultyBean> addFacultyAttendance(HttpServletRequest request, HttpServletResponse response) {
+
+		int class_ID = Integer.parseInt(request.getParameter("classID"));
+		int sub_ID = Integer.parseInt(request.getParameter("subID"));
+		FacultyDB db = new FacultyDB();
+		ArrayList<FacultyBean> attList = db.addFacultyAttendance(class_ID, sub_ID);
+		request.setAttribute("addAttL", attList);
+		
+		return attList;
+		
+	}
+
+	public void editFacultyMarks(HttpServletRequest request, HttpServletResponse response) {
+		
+		
+		
+	}
 }

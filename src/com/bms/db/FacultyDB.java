@@ -112,12 +112,14 @@ public class FacultyDB {
 				fb.setStudent_name(rs.getString(2));
 				
 				double cie1 = rs.getDouble(3);
-				System.out.println("rs.getInt for cie1 = "+cie1);
-				fb.setCie1(cie1);
+				double cie2 = rs.getDouble(4);
+				double cie3 = rs.getDouble(5);
+				double lab = rs.getDouble(6);
 				
-				fb.setCie2(rs.getInt(4));
-				fb.setCie3(rs.getInt(5));
-				fb.setLab(rs.getInt(6));
+				fb.setCie1(cie1);				
+				fb.setCie2(cie2);
+				fb.setCie3(cie3);
+				fb.setLab(lab);
 				
 				facMarksList.add(fb);
 			}
@@ -151,5 +153,60 @@ public class FacultyDB {
 		}
 		
 		return fb;
+	}
+
+	public ArrayList<FacultyBean> addFacultyMarks(int class_ID, int sub_ID) {
+		
+		Connection con = getConnection();
+		String sql = "select stud_t.student_id, stud_t.student_name from stud_t, stud_sub where stud_t.student_id = stud_sub.student_id and stud_t.class_id = ? and stud_sub.sub_id = ?";		
+		ArrayList<FacultyBean> facMarksList = new ArrayList<FacultyBean>();
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, class_ID);
+			pstmt.setInt(2, sub_ID);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				FacultyBean fb = new FacultyBean();
+				fb.setStudent_id(rs.getInt(1));
+				fb.setStudent_name(rs.getString(2));
+				
+				facMarksList.add(fb);
+			}
+						
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return facMarksList;
+	}
+
+	public ArrayList<FacultyBean> addFacultyAttendance(int class_ID, int sub_ID) {
+
+		Connection con = getConnection();
+		String sql = "select stud_t.student_id, stud_t.student_name from stud_t, stud_sub where stud_t.student_id = stud_sub.student_id and stud_t.class_id = ? and stud_sub.sub_id = ?";		
+		ArrayList<FacultyBean> facAttenList = new ArrayList<FacultyBean>();
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, class_ID);
+			pstmt.setInt(2, sub_ID);
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				FacultyBean fb = new FacultyBean();
+				fb.setStudent_id(rs.getInt(1));
+				fb.setStudent_name(rs.getString(2));
+				facAttenList.add(fb);
+			}
+						
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		
+		return facAttenList;
 	}
 }

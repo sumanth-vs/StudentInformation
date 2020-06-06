@@ -51,23 +51,11 @@
 				<img src="Assets\attendace_img.jpg">
 			</div>
 			<div class="attendance">
-				<h2><a href="/StudentInformation/StudentServlet?action=getFacultyClassDetails&facID=<%=ub.getUserID()%>">Maintain and Track Attendance</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getFacultyClassDetails&facID=<%=ub.getUserID()%>">Maintain Attendance and Marks</a></h2>
 				<p>
-					SIP makes it incredibly easy to update the attendance for each class.
-					It puts this vital information at the fingertips of students.
-				</p>
-			</div>
-		</section>
-
-
-		<section class="marks-sec">
-			<div>
-				<img class = "marks-img" src="Assets\aplus.jpg">
-			</div>
-			<div class="marks">
-				<h2><a href="marks_t.html">Show Student's Marks</a></h2>
-				<p>
-					Students can access their records anywhere, any time
+				
+					View, Add or Modify the Marks and Attendance of all the 
+					students you handle
 				</p>
 			</div>
 		</section>

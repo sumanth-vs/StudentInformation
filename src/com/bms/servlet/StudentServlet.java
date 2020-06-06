@@ -41,9 +41,6 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("logout")) {
 				logout(request, response);
 			}
-			else if(action.equals("forgotPassword")) {
-
-			}
 			else if(action.equals("registerStudentPage")) {
 				registerStudentPage(request, response);
 			}
@@ -92,6 +89,9 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("editFacultyAttendance")) {
 				editFacultyAttendance(request, response);
 			}
+			else if(action.equals("editFacultyMarks")) {
+				editFacultyMarks(request, response);
+			}
 			else if(action.equals("backToStudentHomepage")) {
 				backToStudentHomepage(request, response);
 			}
@@ -107,11 +107,34 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("checkForgotUsername")) {
 				checkForgotUsername(request, response);
 			}
+			else if(action.equals("addFacultyAttendance")) {
+				addFacultyAttendance(request, response);
+			}
+			else if(action.equals("addFacultyMarks")) {
+				addFacultyMarks(request, response);
+			}
 		}		
 		else {			
 		}
 	}
 
+	private void addFacultyMarks(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		FacultyAction fa = new FacultyAction();
+		fa.addFacultyMarks(request, response);
+		fa.getClassDetails(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddFacultyMarks.jsp");
+		rd.forward(request, response);
+	}
+
+	private void addFacultyAttendance(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		FacultyAction fa = new FacultyAction();
+		fa.addFacultyAttendance(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddFacultyAttendance.jsp");
+		rd.forward(request, response);
+	}
+	
 	private void checkForgotUsername(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		
 		RequestDispatcher rd = null;
@@ -123,13 +146,14 @@ public class StudentServlet extends HttpServlet {
 			rd = getServletContext().getRequestDispatcher("/ForgotPassword.jsp");
 		}
 		else {
-			
+			rd = getServletContext().getRequestDispatcher("/ForgotPasswordEmail.jsp");
 		}
 		rd.forward(request, response);
 	}
 	
 	private void forgotPassword(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-
+		
+		request.setAttribute("ub", new UserBean());
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/ForgotPassword.jsp");
 		rd.forward(request, response);
 	}
@@ -156,7 +180,15 @@ public class StudentServlet extends HttpServlet {
 
 		FacultyAction fa = new FacultyAction();
 		fa.editFacultyAttendance(request, response);
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyAttendanceEdit.jsp");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyAttendance.jsp");
+		rd.forward(request, response);
+	}
+	
+	private void editFacultyMarks(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		FacultyAction fa = new FacultyAction();
+		fa.editFacultyMarks(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyAttendance.jsp");
 		rd.forward(request, response);
 	}
 
@@ -173,6 +205,7 @@ public class StudentServlet extends HttpServlet {
 
 		FacultyAction fa = new FacultyAction();
 		fa.getFacultyAttendance(request, response);
+		fa.getClassDetails(request, response);
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyAttendance.jsp");
 		rd.forward(request, response);
 	}

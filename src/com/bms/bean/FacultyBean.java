@@ -16,9 +16,9 @@ public class FacultyBean {
 	private int classes_attend;
 	// Change these to double
 	private double cie1;
-	private int cie2;
-	private int cie3;
-	private int lab;
+	private double cie2;
+	private double cie3;
+	private double lab;
 	
 	
 	public double getCie1() {
@@ -27,22 +27,22 @@ public class FacultyBean {
 	public void setCie1(double cie1) {
 		this.cie1 = cie1;
 	}
-	public int getCie2() {
+	public double getCie2() {
 		return cie2;
 	}
-	public void setCie2(int cie2) {
+	public void setCie2(double cie2) {
 		this.cie2 = cie2;
 	}
-	public int getCie3() {
+	public double getCie3() {
 		return cie3;
 	}
-	public void setCie3(int cie3) {
+	public void setCie3(double cie3) {
 		this.cie3 = cie3;
 	}
-	public int getLab() {
+	public double getLab() {
 		return lab;
 	}
-	public void setLab(int lab) {
+	public void setLab(double lab) {
 		this.lab = lab;
 	}
 	public int getClasses_cond() {

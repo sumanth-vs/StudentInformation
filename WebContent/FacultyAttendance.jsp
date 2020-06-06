@@ -1,7 +1,7 @@
 <%@ page language="java" import="com.bms.bean.*, java.util.*"%>
 <%ArrayList<FacultyBean> attList = (ArrayList<FacultyBean>)request.getAttribute("attL"); %>
 <%Iterator itr = attList.iterator(); %>
-<%UserBean ub = (UserBean) session.getAttribute("ub"); %>
+<%FacultyBean fb = (FacultyBean)request.getAttribute("fb"); %>
 
 
 
@@ -47,12 +47,8 @@
     
     <div style="margin: 80px;">
         <h2 style="font-family: Helvetica; color: white; position: absolute; top: 52%;">
-            Semester : <%=ub.getSem() %> | Section : <%=ub.getSection() %> |Branch : <%=ub.getCourse() %>
+            Semester : <%=fb.getSem() %> | Section : <%=fb.getSection() %> |Branch : <%=fb.getCourse() %>
         </h2>
-        <h3 style="font-family: Helvetica; color: white; position: absolute; top: 58%;">
-            Attendance between 75% and 85% are marked in BLUE
-            Attendance below 75% is marked in RED
-        </h3>
     </div>
 
     <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute; top: 57%; left: 18%;">
@@ -67,12 +63,12 @@
             </tr>
 
 			<%while(itr.hasNext()){ %>
-			<%FacultyBean fb = (FacultyBean)itr.next(); %>
+			<%FacultyBean fb1 = (FacultyBean)itr.next(); %>
             <tr>
-                <td><%=fb.getStudent_name() %></td>
-                <td><%=fb.getClasses_cond() %></td>
-                <td><%=fb.getClasses_attend() %></td>
-                <td><%=(double) fb.getClasses_attend()/fb.getClasses_cond() * 100 %></td>        
+                <td><%=fb1.getStudent_name() %></td>
+                <td><%=fb1.getClasses_cond() %></td>
+                <td><%=fb1.getClasses_attend() %></td>
+                <td><%=(double) fb1.getClasses_attend()/fb1.getClasses_cond() * 100 %></td>        
                 <td><a href="/StudentInformation/StudentServlet?action=editFacultyAttendance">Edit</a></td>        
             </tr>
             <%} %>

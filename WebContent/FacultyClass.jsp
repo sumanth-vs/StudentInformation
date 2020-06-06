@@ -4,10 +4,65 @@
 <%UserBean ub = (UserBean) session.getAttribute("ub"); %>
 
 
-<%while(itr.hasNext()){ %>
-<%FacultyBean fb = (FacultyBean)itr.next(); %>
-	<%=fb.getSem() %> | <%=fb.getSection() %> | <%=fb.getCourse() %> | <%=fb.getSub_name() %> | <a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Maintain attendance</a> | <a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Maintain Marks</a>
-	<br></br>
-<%}%>
-<br></br>
-<a href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back To Homepage</a>
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Marks</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        table {
+            margin: 75px;
+            border-collapse: collapse;
+            width: 90%;
+        }
+        th,
+        td {
+            color: white;
+            text-align: left;
+            padding: 20px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #0b0c0c;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
+        <table>
+            <tr>
+                <th>Semester</th>
+                <th>Section</th>
+                <th>Course</th>
+                <th>Subject</th>
+                <th>Attendance</th>
+                <th></th>
+                <th>Marks</th>
+                <th></th>
+            </tr>
+				<%while(itr.hasNext()){ %>
+				<%FacultyBean fb = (FacultyBean)itr.next(); %>
+            <tr>
+                <td><%=fb.getSem() %></td>
+                <td><%=fb.getSection() %></td>
+                <td><%=fb.getCourse() %></td>
+                <td><%=fb.getSub_name() %></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">View attendance</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Add attendance Details</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">View Marks</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Add Marks</a></td>
+            </tr>
+            <%} %>
+        </table>
+        <a href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back To Homepage</a>
+    </div>
+
+</body>
+
+</html>
+

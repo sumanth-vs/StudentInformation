@@ -113,6 +113,7 @@ public class UserDB {
 		
 		try {
 			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, username);
 			ResultSet rs = pstmt.executeQuery();
 			
 			while(rs.next()) {

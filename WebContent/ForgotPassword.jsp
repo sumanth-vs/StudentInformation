@@ -11,10 +11,12 @@
 
     <body>
         <form class="box" action="/StudentInformation/StudentServlet" method="POST">
-        	<input type="text" name="action" value="checkForgotUsername">
+        	<input type="hidden" name="action" value="checkForgotUsername">
             <h1>Enter your UserName</h1>
-            <input type="text" name="username" id = "e1" placeholder="Email" required>
-            <h4><%if(ub.getGenErrFlag()== 1){ %><%=ub.getGenErrMsg() %></h4><%} %>
+            <input type="text" name="username" id = "e1" placeholder="Username" required>
+           	<%if(ub.getGenErrFlag() == 1){ %>
+           	<font color="white"><h4><%=ub.getGenErrMsg() %></h4></font>
+           	<%} %>
             <input type="submit" name="" placeholder="Submit">
         </form>
     </body>
