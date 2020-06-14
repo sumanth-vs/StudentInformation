@@ -35,12 +35,6 @@
     <div>
         <img style="max-width: 150px; position: absolute; left: 41.5%; border-radius: 20px" src="Assets/teacher.jpg" alt="SurajFail">
     </div>
-    <!-- <div style="margin: 80px;">
-        <p style="font-family: Helvetica; color: white;">* Minimum Marks for eligibility is 20 in each course</p>
-        <p style="font-family: Helvetica;color: white;">* Best two marks of three tests will be considered for CIE</p>
-        <p style="font-family: Helvetica;color: white;">* If CIE Marks is below 20, you are NOT ELIGIBLE to take up the SEE for that course.</p>
-        <p style="font-family: Helvetica;color: white;">* Please contact your proctor for further details: Mrs. Antara De (+919538433364)</p>
-    </div> -->
     
     <div style="margin: 80px;">
         <h2 style="font-family: Helvetica; color: white; position: absolute; top: 57%;">
@@ -69,7 +63,7 @@
                 <td><%=fb1.getCie3() %></td>
                 <td><%=fb1.getLab() %></td>
                 <td>best of 3 + lab</td>
-                <td><a href="/StudentInformation/StudentServlet?action=editFacultyMarks">Edit</a></td>           
+                <td><a href="/StudentInformation/StudentServlet?action=editFacultyMarks&stdId=<%=fb1.getStudent_id()%>&classID=<%=fb1.getClass_id()%>&subID=<%=fb1.getSub_id()%>" style="text-decoration: none; color: white;">Edit</a></td>           
             </tr>
             <%} %>
         </table>

@@ -1,7 +1,17 @@
 <%@ page language="java" import="com.bms.bean.*, java.util.*"%>
-<%ArrayList<FacultyBean> attList = (ArrayList<FacultyBean>)request.getAttribute("addAttL"); %>
-<%Iterator itr = attList.iterator(); %>
-<%UserBean ub = (UserBean) session.getAttribute("ub"); %>
+<%
+	ArrayList<FacultyBean> attList = (ArrayList<FacultyBean>) request.getAttribute("addAttL");
+%>
+<%
+	Iterator itr = attList.iterator();
+%>
+<%
+	UserBean ub = (UserBean) session.getAttribute("ub");
+%>
+<%int sub_ID = (int) request.getAttribute("subID"); %>
+<%int class_ID = (int) request.getAttribute("classID"); %>
+
+<%FacultyBean fb = (FacultyBean)request.getAttribute("fb"); %>
 
 
 
@@ -44,52 +54,55 @@ tr:nth-child(even) {
 				style="max-width: 100px; position: absolute; left: 43%; border-radius: 20px"
 				src="Assets/teacher.jpg" alt="SurajFail">
 		</div>
-		<!-- <div style="margin: 80px;">
-        <p style="font-family: Helvetica; color: white;">* Minimum attendance for eligibility is 85% in each course</p>
-        <p style="font-family: Helvetica; color: white;">* Students with attendance above 75% must apply for condonation</p>
-        <p style="font-family: Helvetica; color: white;">* Students with attendance below 75% are NOT ELIGIBLE to write the Semester End Examinations</p>
-    </div> -->
+
 
 		<div style="margin: 80px;">
 			<h2
 				style="font-family: Helvetica; color: white; position: absolute; top: 52%;">
 				Semester :
-				<%=ub.getSem() %>
+				<%=fb.getSem()%>
 				| Section :
-				<%=ub.getSection() %>
+				<%=fb.getSection()%>
 				|Branch :
-				<%=ub.getCourse() %>
+				<%=fb.getCourse()%>
 			</h2>
 		</div>
 
-		<div
-			style="overflow-x: auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute; top: 57%; left: 18%;">
-			<table>
-
-				<tr style="background-color: #818181;">
-					<th>Student Name</th>
-					<th>Classes Conducted</th>
-					<th>Classes Attended</th>
-				</tr>
-
-				<%while(itr.hasNext()){ %>
-				<%FacultyBean fb = (FacultyBean)itr.next(); %>
-				<tr>
-					<font color="white">
-					<td><%=fb.getStudent_name() %></td>
-					</font>
+		<form action="/StudentInformation/StudentServlet">
+			<input type="hidden" name="action" value="addFacultyAttendanceValues">
+			<input type="hidden" name="subID" value="<%=sub_ID%>">
+			<input type="hidden" name="classID" value="<%=class_ID%>">
+			<div
+				style="overflow-x: auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute; top: 57%; left: 18%;">
+				<table>
+	
+					<tr style="background-color: #818181;">
+						<th>Student Name</th>
+						<th>Classes Conducted</th>
+						<th>Classes Attended</th>
+					</tr>
+	
+					<%
+						while (itr.hasNext()) {
+					%>
+					<%
+						FacultyBean fb1 = (FacultyBean) itr.next();
+					%>
+					<tr>
+		                <td><input type="text" value="<%=fb1.getStudent_name() %>" readonly="readonly"></td>
+		                <font color="white"><td><input type="text" name="classesCond"></td></font>
+		                <font color="white"><td><input type="text" name="classesAttend"></td></font>
+		                <td><input type="hidden" name="stdID" value="<%=fb1.getStudent_id()%>"></td>
+		            </tr>
+					<%
+						}
+					%>
 					
-					<font color="white">
-					<td><input type="text" name="classes_cond"></td>
-					</font>
-					
-					<font color="white">
-					<td><input type="text" name="classes_attend"></td>
-					</font>					
-				</tr>
-				<%} %>
-			</table>
-		</div>
+					<tr><td><input type="submit" value="Add Attendance"></td></tr>
+				</table>
+			</div>
+		
+		</form>
 </body>
 
 </html>

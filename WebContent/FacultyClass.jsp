@@ -52,14 +52,14 @@
                 <td><%=fb.getSection() %></td>
                 <td><%=fb.getCourse() %></td>
                 <td><%=fb.getSub_name() %></td>
-                <td><a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">View attendance</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=addFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Add attendance Details</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">View Marks</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=addFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>">Add Marks</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">View attendance</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">Add attendance Details</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">View Marks</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">Add Marks</a></td>
             </tr>
             <%} %>
         </table>
-        <a href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back To Homepage</a>
+        <a href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>" style="text-decoration: none; color: white;">Back To Homepage</a>
     </div>
 
 </body>

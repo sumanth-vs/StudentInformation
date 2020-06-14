@@ -39,11 +39,6 @@
     <div>
         <img style="max-width: 100px; position: absolute; left: 43%;  border-radius: 20px" src="Assets/teacher.jpg" alt="SurajFail">
     </div>
-    <!-- <div style="margin: 80px;">
-        <p style="font-family: Helvetica; color: white;">* Minimum attendance for eligibility is 85% in each course</p>
-        <p style="font-family: Helvetica; color: white;">* Students with attendance above 75% must apply for condonation</p>
-        <p style="font-family: Helvetica; color: white;">* Students with attendance below 75% are NOT ELIGIBLE to write the Semester End Examinations</p>
-    </div> -->
     
     <div style="margin: 80px;">
         <h2 style="font-family: Helvetica; color: white; position: absolute; top: 52%;">
