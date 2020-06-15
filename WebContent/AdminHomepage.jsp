@@ -1,5 +1,5 @@
-<%@ page language="java" import="com.bms.bean.StudentBean"%>
-<%StudentBean sb = (StudentBean)request.getAttribute("sb"); %>
+<%@ page language="java" import="com.bms.bean.UserBean"%>
+<%UserBean ub = (UserBean) session.getAttribute("ub");%>
 
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@
 					<a href = "#"><img class = "logotext"  src = "Assets\sip_logo.png"></a>
 				</div>
 					<ul>
-						<li class="active"><a href="#">Welcome <%=sb.getName() %></a></li>
+						<li class="active"><a href="#">Welcome <%=ub.getUserName() %></a></li>
 						<li class = "active"><a href="#">Home</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=aboutPage">About</a></li>
 						<li><a href="/StudentInformation/StudentServlet?action=logout">Sign Out</a></li>
@@ -51,11 +51,7 @@
 				<img src="Assets\attendace_img.jpg">
 			</div>
 			<div class="attendance">
-				<h2><a href="/StudentInformation/StudentServlet?action=getStudentAttendance&stdID=<%=sb.getStdid()%>">Maintain and Track Attendance</a></h2>
-				<p>
-					SIP makes it incredibly easy to update the attendance for each class.
-					It puts this vital information at the fingertips of students.
-				</p>
+				<h2><a href="/StudentInformation/StudentServlet?action=activateStudentAccount">Change Account Status</a></h2>
 			</div>
 		</section>
 
@@ -65,10 +61,7 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="/StudentInformation/StudentServlet?action=getAcademicDetails&stdID=<%=sb.getStdid()%>">Show Student's Marks</a></h2>
-				<p>
-					Students can access their records anywhere, any time
-				</p>
+				<h2><a href="/StudentInformation/StudentServlet?action=addNewFaculty">Add Faculty</a></h2>
 			</div>
 		</section>
 
@@ -78,10 +71,7 @@
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="/StudentInformation/StudentServlet?action=getStudentProjects&stdID=<%=sb.getStdid()%>">Projects, Assignments.</a></h2>
-				<p>
-					Students can submit them all from one place
-				</p>
+				<h2><a href="/StudentInformation/StudentServlet?action=addNewSubject">Add Subjects</a></h2>>
 			</div>
 		</section>
 
@@ -92,10 +82,7 @@
 					<img class = "complete-stud-img" src="Assets/complete-student-records.webp">
 				</div>
 				<div class="complete-stud">
-					<h2><a href="/StudentInformation/StudentServlet?action=getStudentInfo&stdID=<%=sb.getStdid()%>">Complete Student Details</a></h2>
-					<p>
-						Complete Student Information at your fingertips
-					</p>
+					<h2><a href="/StudentInformation/StudentServlet?action=addNewClass">Add Classes</a></h2>
 				</div>
 			</section>
 

@@ -73,6 +73,7 @@ public class StudentAction extends HttpServlet {
 		String mother_name = request.getParameter("mother_name");
 		String mother_mob = request.getParameter("mother_mob");
 		int course_class_sec = Integer.parseInt(request.getParameter("course_class_sec"));
+		String status = request.getParameter("status");
 
 		sb.setUsername(username);
 		sb.setPassword(password);
@@ -88,6 +89,7 @@ public class StudentAction extends HttpServlet {
 		sb.setMother_name(mother_name);
 		sb.setMother_mob(mother_mob);
 		sb.setClass_id(course_class_sec);
+		sb.setStatus(Integer.parseInt(status));
 
 		
 		// Regex Validator

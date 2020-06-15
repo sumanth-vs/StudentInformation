@@ -142,6 +142,7 @@ public class StudentinfoDB {
 		int user_id = 0;
 		int count = 0;
 		
+		
 		try {
 			PreparedStatement pstmt1 = con.prepareStatement(sql1);
 			PreparedStatement pstmt2 = con.prepareStatement(sql2);
@@ -172,7 +173,7 @@ public class StudentinfoDB {
 				pstmt4.setInt(2, 3);
 				pstmt4.setString(3, sb.getUsername());
 				pstmt4.setString(4, sb.getPassword());
-				pstmt4.setInt(5, 1);
+				pstmt4.setInt(5, sb.getStatus());
 				
 				count = pstmt4.executeUpdate();
 				

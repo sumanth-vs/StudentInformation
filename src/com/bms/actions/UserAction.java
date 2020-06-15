@@ -33,7 +33,12 @@ public class UserAction extends HttpServlet{
 		if(uBean.getGenErrFlag() == 1) {
 			uBean.setGenErrMsg("Invalid Username/Password");
 		}
-
+		else if(uBean.getGenErrFlag() == 2) {
+			if(uBean.getStatusFlg() == 1) {
+				uBean.setStatusMsg("Account Needs to be activated");
+			}
+		}
+		
 		request.setAttribute("ub", ub);
 
 		return uBean;

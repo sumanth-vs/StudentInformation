@@ -12,7 +12,22 @@ public class UserBean {
 	private String sem = "";
 	private String section = "";
 	private String course = "";
+	private int statusFlg;
+	private String statusMsg = "";
 	
+	
+	public int getStatusFlg() {
+		return statusFlg;
+	}
+	public void setStatusFlg(int statusFlg) {
+		this.statusFlg = statusFlg;
+	}
+	public String getStatusMsg() {
+		return statusMsg;
+	}
+	public void setStatusMsg(String statusMsg) {
+		this.statusMsg = statusMsg;
+	}
 	public String getName() {
 		return name;
 	}

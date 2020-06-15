@@ -17,9 +17,12 @@
             <h1>Login To Access Your Information</h1>
             <input type="text" name="username" placeholder="Username" id="text1"  required>
             <input type="password" name="password" placeholder="Password" id="text2" required>
-            <br></br>
-            <%if(ub.getGenErrFlag() == 1) %>
-            <%=ub.getGenErrMsg() %>
+            
+            <%if(ub.getGenErrFlag() == 1)%>
+            <font color="white"><%=ub.getGenErrMsg() %></font>
+            
+            <%if(ub.getGenErrFlag() == 2) %>
+            <font color="white"><%=ub.getStatusMsg() %></font>
             <br></br>
             <a href="/StudentInformation/StudentServlet?action=forgotPassword">Forgot Password?</a>
             

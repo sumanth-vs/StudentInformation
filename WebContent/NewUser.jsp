@@ -16,6 +16,7 @@
     <body>
         <form class="box" action="/StudentInformation/StudentServlet" method="POST"">
         	<input type="hidden" name="action" value="registerStudentDetails">
+        	<input type="hidden" name="status" value="0">
             <h1>Enter Details</h1>
             <input type="text" name="username" id="idd"placeholder="Username" value="<%=sb.getUsername() %>" required>
             <br></br>

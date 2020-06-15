@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 
 import com.bms.actions.FacultyAction;
 import com.bms.actions.StudentAction;
+import com.bms.actions.AdminAction;
 import com.bms.actions.UserAction;
 import com.bms.bean.FacultyBean;
 import com.bms.bean.StudentBean;
@@ -93,8 +94,49 @@ public class StudentServlet extends HttpServlet {
 			} else if (action.equals("addFacultyMarksValues")) {
 				addFacultyMarksValues(request, response);
 			}
+			else if(action.equals("getAdminHoepage")) {
+				getAdminHomepage(request, response);
+			}
+			else if(action.equals("activateStudentAccount")) {
+				activateStudentAccount(request, response);
+			}
+			else if(action.equals("addNewFaculty")) {
+				addNewFaculty(request, response);
+			}
+			else if(action.equals("addNewSubject")) {
+				addNewSubject(request, response);
+			}
+			else if(action.equals("addNewClass")) {
+				addNewClass(request, response);
+			}
 		} else {
 		}
+	}
+
+	private void addNewClass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
+		
+		
+	}
+
+	private void addNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+	}
+
+	private void addNewFaculty(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		
+	}
+
+	private void activateStudentAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		AdminAction aa = new AdminAction();
+		aa.activateStudentAccount(request, response);
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AdminAccountStatus.jsp");
+		rd.forward(request, response);
+	}
+
+	private void getAdminHomepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
 	}
 
 	private void addFacultyMarksValues(HttpServletRequest request, HttpServletResponse response)
@@ -107,6 +149,7 @@ public class StudentServlet extends HttpServlet {
 		ArrayList<FacultyBean> marksList = fa.getFacultyMarks(request, response);
 		request.setAttribute("marksL", marksList);
 		fa.getClassDetails(request, response);
+
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/FacultyMarks.jsp");
 		rd.forward(request, response);
 	}
@@ -347,7 +390,13 @@ public class StudentServlet extends HttpServlet {
 
 		if (ub.getGenErrFlag() == 1) {
 			rd = getServletContext().getRequestDispatcher("/Login.jsp");
-		} else {
+		} 
+
+		else if(ub.getGenErrFlag() == 2) {
+			rd = getServletContext().getRequestDispatcher("/Login.jsp");
+		}
+
+		else {
 			session = request.getSession(true);
 			session.setAttribute("ub", ub);
 

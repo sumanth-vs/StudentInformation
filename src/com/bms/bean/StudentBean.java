@@ -71,9 +71,24 @@ public class StudentBean {
 	private int motherMobErr;
 	private String motherMobErrMsg = "";
 	
+	private int status;
+	private String statusMsg = "";
+	
 	
 	// SETTER GETTER
 	
+	public int getStatus() {
+		return status;
+	}
+	public void setStatus(int status) {
+		this.status = status;
+	}
+	public String getStatusMsg() {
+		return statusMsg;
+	}
+	public void setStatusMsg(String statusMsg) {
+		this.statusMsg = statusMsg;
+	}
 	public int getGenErr() {
 		return genErr;
 	}
