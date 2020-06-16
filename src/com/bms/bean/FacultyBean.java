@@ -8,19 +8,53 @@ public class FacultyBean {
 	private String sem = "";
 	private String section = "";
 	private String sub_name = "";
+	private String sub_short_name = "";
 	private int sub_id;
 	private int class_id;
 	private int student_id;
 	private String student_name = "";
 	private int classes_cond;
 	private int classes_attend;
-	// Change these to double
 	private double cie1;
 	private double cie2;
 	private double cie3;
 	private double lab;
+	private String mob = "";
+	private String email = "";
+	private String username = "";
+	private String password = "";
 	
 	
+	public String getSub_short_name() {
+		return sub_short_name;
+	}
+	public void setSub_short_name(String sub_short_name) {
+		this.sub_short_name = sub_short_name;
+	}
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
+	public String getMob() {
+		return mob;
+	}
+	public void setMob(String mob) {
+		this.mob = mob;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public double getCie1() {
 		return cie1;
 	}

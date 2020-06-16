@@ -100,11 +100,20 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("activateStudentAccount")) {
 				activateStudentAccount(request, response);
 			}
+			else if(action.equals("getNewFacultyPage")) {
+				getNewFacultyPage(request, response);
+			}
 			else if(action.equals("addNewFaculty")) {
 				addNewFaculty(request, response);
 			}
+			else if(action.equals("getAddNewSubjectPage")) {
+				getAddNewSubjectPage(request, response);
+			}
 			else if(action.equals("addNewSubject")) {
 				addNewSubject(request, response);
+			}
+			else if(action.equals("getAddNewClassPage")) {
+				getAddNewClassPage(request, response);
 			}
 			else if(action.equals("addNewClass")) {
 				addNewClass(request, response);
@@ -113,17 +122,49 @@ public class StudentServlet extends HttpServlet {
 		}
 	}
 
+	private void getAddNewClassPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewClassPage.jsp");
+		rd.forward(request, response);
+		
+	}
+
+	private void getNewFacultyPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewFacultyPage.jsp");
+		rd.forward(request, response);
+	}
+	private void getAddNewSubjectPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewSubjectPage.jsp");
+		rd.forward(request, response);
+	}
+
 	private void addNewClass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
 		
-		
+		AdminAction aa = new AdminAction();
+		aa.addNewClass(request, response);
+		// Should -> Home Page
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewClassPage.jsp");
+		rd.forward(request, response);
 	}
 
 	private void addNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
+		AdminAction aa = new AdminAction();
+		aa.addNewSubject(request, response);
+		// Should -> Home Page
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewSubjectPage.jsp");
+		rd.forward(request, response);
 	}
 
 	private void addNewFaculty(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		
+		AdminAction aa = new AdminAction();
+		aa.addNewFaculty(request, response);
+		// Should -> Home Page
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewFacultyPage.jsp");
+		rd.forward(request, response);
 	}
 
 	private void activateStudentAccount(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{

@@ -61,7 +61,7 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="/StudentInformation/StudentServlet?action=addNewFaculty">Add Faculty</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getNewFacultyPage">Add Faculty</a></h2>
 			</div>
 		</section>
 
@@ -71,7 +71,7 @@
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="/StudentInformation/StudentServlet?action=addNewSubject">Add Subjects</a></h2>>
+				<h2><a href="/StudentInformation/StudentServlet?action=getAddNewSubjectPage">Add Subjects</a></h2>
 			</div>
 		</section>
 
@@ -82,7 +82,7 @@
 					<img class = "complete-stud-img" src="Assets/complete-student-records.webp">
 				</div>
 				<div class="complete-stud">
-					<h2><a href="/StudentInformation/StudentServlet?action=addNewClass">Add Classes</a></h2>
+					<h2><a href="/StudentInformation/StudentServlet?action=getAddNewClassPage">Add Classes</a></h2>
 				</div>
 			</section>
 
