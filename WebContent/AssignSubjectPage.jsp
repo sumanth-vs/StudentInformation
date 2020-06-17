@@ -18,15 +18,13 @@
         	<input type="hidden" name="action" value="assignSubject">
             <h1>Enter Details</h1>
             <input type="text" name="std_id" id="idd"placeholder="Student ID" required>
-            <br></br>
 
             <input type="text" name="sub_id" id="idd"placeholder="Subject ID" required>
-            <br></br>           
             
             <input type="submit" name="Assign Subject" placeholder="Assign Subject">
 
         </form>
 		<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
-        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back To Home page</a>
+        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back</a>
     </body>
 </html>

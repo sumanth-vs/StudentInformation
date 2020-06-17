@@ -14,11 +14,7 @@
         body{
             background-color: black;
         }
-        table {
-            margin: 75px;
-            border-collapse: collapse;
-            width: 90%;
-        }
+
         th,
         td {
             color: white;
@@ -29,14 +25,96 @@
         tr:nth-child(even) {
             background-color: #0b0c0c;
         }
+        
+        
+        
+        
+        
+        
+        
+	        /* The container must be positioned relative: */
+	.custom-select {
+	  position: relative;
+	  font-family: Arial;
+	}
+	
+	.custom-select select {
+	  display: none; /*hide original SELECT element: */
+	}
+	
+	.select-selected {
+	  background-color: DodgerBlue;
+	}
+	
+	/* Style the arrow inside the select element: */
+	.select-selected:after {
+	  position: absolute;
+	  content: "";
+	  top: 14px;
+	  right: 10px;
+	  width: 0;
+	  height: 0;
+	  border: 6px solid transparent;
+	  border-color: #fff transparent transparent transparent;
+	}
+	
+	/* Point the arrow upwards when the select box is open (active): */
+	.select-selected.select-arrow-active:after {
+	  border-color: transparent transparent #fff transparent;
+	  top: 7px;
+	}
+	
+	/* style the items (options), including the selected item: */
+	.select-items div,.select-selected {
+	  color: #ffffff;
+	  padding: 8px 16px;
+	  border: 1px solid transparent;
+	  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
+	  cursor: pointer;
+	}
+	
+	/* Style items (options): */
+	.select-items {
+	  position: absolute;
+	  background-color: DodgerBlue;
+	  top: 100%;
+	  left: 0;
+	  right: 0;
+	  z-index: 99;
+	}
+	
+	/* Hide the items when the select box is closed: */
+	.select-hide {
+	  display: none;
+	}
+	
+	.select-items div:hover, .same-as-selected {
+	  background-color: rgba(0, 0, 0, 0.1);
+	}
+	        
+	        
+	        
+        
+        
+        
+        
+        
+        
     </style>
 </head>
 
 <body>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">Monitor Your Students' Marks</h1>
     
+    <div>
+			<img
+				style="max-width: 100px; position: absolute; left: 43%; border-radius: 20px"
+				src="Assets/teacher.jpg" alt="SurajFail">
+		</div>
+	
+    
     <div style="margin: 80px;">
-        <h2 style="font-family: Helvetica; color: white; position: absolute; top: 57%;">
+        <h2 style="font-family: Helvetica; color: red; position: absolute; top: 57%;">
             Semester : <%=fb.getSem() %> | Section : <%=fb.getSection() %> |Branch : <%=fb.getCourse() %>
         </h2>
     </div>
@@ -46,11 +124,12 @@
 		<input type="hidden" name="action" value="addFacultyMarksValues">
 		<input type="hidden" name="subID" value="<%=sub_ID%>">
 		<input type="hidden" name="classID" value="<%=class_ID%>">
-	    <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
+	    <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 67%; left:10%;">
 	        <table>
 		        <tr>
 		        	<td>
-		        		<select name="internalType">
+		        		<select name="internalType" class="custom-select" style="width:80px;">
+		        			<option>Select</option>
 		        			<option value="cie1">CIE 1</option>
 		        			<option value="cie2">CIE 2</option>
 		        			<option value="cie3">CIE 3</option>
@@ -59,7 +138,9 @@
 		        	</td>
 		        </tr> 
 	        	
-	        	<tr><td>&nbsp;</td></tr>
+	        	<th style="background-color: #818181;">Student Name</th>
+	        	<th style="background-color: #818181;">Marks</th>
+	        	
 	            <%while(itr.hasNext()){ %>
 				<%FacultyBean fb1 = (FacultyBean)itr.next(); %>
 	            

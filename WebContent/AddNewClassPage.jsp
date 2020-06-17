@@ -18,21 +18,17 @@
         	<input type="hidden" name="action" value="addNewClass">
             <h1>Enter Details</h1>
             <input type="text" name="sem" id="idd"placeholder="Semester" required>
-            <br></br>
 
             <input type="text" name="section" id="idd"placeholder="Section" required>
-            <br></br>
             <input type="text" name="course" id="idd"placeholder="Course"  required>
-            <br></br>
 
             <input type="text" name="course_code" id = "e2" placeholder="Course Code"  required>
-            <br></br>
 
             
             <input type="submit" name="Add Class" placeholder="Add Class">
 
         </form>
 		<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
-        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back To Home page</a>
+        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back</a>
     </body>
 </html>

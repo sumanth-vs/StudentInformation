@@ -30,7 +30,7 @@
 
 <body>
 
-	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back</a></h6>	
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>">Back</a></h6>	
     
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px; margin: 25px;">Links to Assignments</h1>
     
@@ -48,11 +48,10 @@
         
             </tr>
             <tr>
-                <td>Linear Algebra</td>
+                <td>Database Management Systems</td>
                  <td><a href = "https://new.edmodo.com/groups/3c-java-30833838" target="_blank" style="text-decoration:  none;color:rgb(29, 107, 196)">Edmodo</a></td>
                 
             </tr>
-            
         </table>
     </div>
 

@@ -10,6 +10,8 @@
     </head>
 
     <body>
+    
+    	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getLoginPage">Back</a></h6>
         <form class="box" action="/StudentInformation/StudentServlet" method="POST">
         	<input type="hidden" name="action" value="checkForgotUsername">
             <h1>Enter your UserName</h1>

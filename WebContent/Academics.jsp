@@ -31,7 +31,7 @@
 </head>
 
 <body>
-	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>">Back To Home Page</a></h6>
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>">Back</a></h6>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">Monitor Your Marks</h1>
     <div>
         <img style="max-width: 250px; position: absolute; left: 70%; border-radius: 20px" src="Assets/user.png" alt="SurajFail">
@@ -39,12 +39,11 @@
     <div style="margin: 80px;">
         <p style="font-family: Helvetica; color: white;">* Minimum Marks for eligibility is 20 in each course</p>
         <p style="font-family: Helvetica;color: white;">* Best two marks of three tests will be considered for CIE</p>
-        <p style="font-family: Helvetica;color: white;">* If CIE Marks is below 20, you are NOT ELIGIBLE to take up the SEE for that course.</p>
-        <p style="font-family: Helvetica;color: white;">* Please contact your proctor for further details: Mrs. Antara De (+919538433364)</p>
+        <p style="font-family: Helvetica;color: #A22;">* If CIE Marks is below 20, you are NOT ELIGIBLE to take up the SEE for that course.</p>
     </div>
     
     <div style="margin: 80px;">
-        <h3 style="font-family: Helvetica; color: white; position: absolute; top: 50%;">
+        <h3 style="font-family: Helvetica; color: red; position: absolute; top: 50%;">
             Semester : <%=ub.getSem() %> | Section : <%=ub.getSection() %> | Branch : <%=ub.getCourse() %> | USN : <%=ub.getUsn() %> 
         </h3>
     </div>
@@ -52,7 +51,7 @@
 
     <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif;">
         <table>
-            <tr>
+            <tr style="background-color: #818181;">
                 <th>Subject</th>
                 <th>Test 1 (/20)</th>
                 <th>Test 2 (/20)</th>
@@ -72,17 +71,13 @@
                 <%a = ab.getCie1(); %>
                 <%b = ab.getCie2(); %>
                 <%c = ab.getCie3(); %>
-                <td><%=Math.round(ab.getLab() + )%></td>
+                <td>best of 3 + lab</td>
             </tr>
             <%} %>
         </table>
     </div>
 
-    <div style="margin: 80px;">
-        <h5 style="font-family: Helvetica; color: white; position: absolute; top: 135%;">
-        --> Please Contact your Proctor for further information.
-        </h5>
-    </div>
+
 
 </body>
 

@@ -53,8 +53,7 @@
 			<div class="attendance">
 				<h2><a href="/StudentInformation/StudentServlet?action=getStudentAttendance&stdID=<%=sb.getStdid()%>">Maintain and Track Attendance</a></h2>
 				<p>
-					SIP makes it incredibly easy to update the attendance for each class.
-					It puts this vital information at the fingertips of students.
+					View your Attendance
 				</p>
 			</div>
 		</section>
@@ -65,9 +64,9 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="/StudentInformation/StudentServlet?action=getAcademicDetails&stdID=<%=sb.getStdid()%>">Show Student's Marks</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getAcademicDetails&stdID=<%=sb.getStdid()%>">See Your Marks</a></h2>
 				<p>
-					Students can access their records anywhere, any time
+					Access your records anywhere, any time
 				</p>
 			</div>
 		</section>
@@ -80,7 +79,7 @@
 			<div class="project">
 				<h2><a href="/StudentInformation/StudentServlet?action=getStudentProjects&stdID=<%=sb.getStdid()%>">Projects, Assignments.</a></h2>
 				<p>
-					Students can submit them all from one place
+					Submit them all from one place
 				</p>
 			</div>
 		</section>
@@ -94,7 +93,7 @@
 				<div class="complete-stud">
 					<h2><a href="/StudentInformation/StudentServlet?action=getStudentInfo&stdID=<%=sb.getStdid()%>">Complete Student Details</a></h2>
 					<p>
-						Complete Student Information at your fingertips
+						View All Your Information 
 					</p>
 				</div>
 			</section>

@@ -1,6 +1,6 @@
 <%@ page language="java" import="com.bms.bean.*, java.util.*"%>
 <%ArrayList<FacultyBean> facList = (ArrayList<FacultyBean>)request.getAttribute("fl"); %>
-<%Iterator itr = facList.iterator(); %>
+<%Iterator<FacultyBean> itr = facList.iterator(); %>
 <%UserBean ub = (UserBean) session.getAttribute("ub"); %>
 
 
@@ -14,7 +14,8 @@
             background-color: black;
         }
         table {
-            margin: 75px;
+            margin-top: -10px;
+            margin-left: 20px;
             border-collapse: collapse;
             width: 90%;
         }
@@ -33,9 +34,11 @@
 
 <body>
 
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back</a></h6>
+
     <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
         <table>
-            <tr>
+            <tr style="background-color: #818181;">
                 <th>Semester</th>
                 <th>Section</th>
                 <th>Course</th>
@@ -52,14 +55,13 @@
                 <td><%=fb.getSection() %></td>
                 <td><%=fb.getCourse() %></td>
                 <td><%=fb.getSub_name() %></td>
-                <td><a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">View attendance</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=addFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">Add attendance Details</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">View Marks</a></td>
-                <td><a href="/StudentInformation/StudentServlet?action=addFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: white;">Add Marks</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: #A22;">View attendance</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyAttendance&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: #A22;">Add attendance</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=getFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: #A22;">View Marks</a></td>
+                <td><a href="/StudentInformation/StudentServlet?action=addFacultyMarks&classID=<%=fb.getClass_id()%>&subID=<%=fb.getSub_id()%>" style="text-decoration: none; color: #A22;">Add Marks</a></td>
             </tr>
             <%} %>
         </table>
-        <a href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>" style="text-decoration: none; color: white;">Back To Homepage</a>
     </div>
 
 </body>

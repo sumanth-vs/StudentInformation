@@ -130,10 +130,19 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("assignSubject")) {
 				assignSubject(request, response);
 			}
+			else if(action.equals("getFacultyProjects")) {
+				getFacultyProjects(request, response);
+			}
 		} 
 
 		else {
 		}
+	}
+
+	private void getFacultyProjects(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Projects.jsp");
+		rd.forward(request, response);
 	}
 
 	private void assignSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
@@ -412,7 +421,7 @@ public class StudentServlet extends HttpServlet {
 	private void getStudentProjects(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Projects.jsp");
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/Projects2.jsp");
 		rd.forward(request, response);
 	}
 

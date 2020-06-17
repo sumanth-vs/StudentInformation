@@ -9,11 +9,6 @@
         body{
             background-color: black;
         }
-        table {
-            margin: 75px;
-            border-collapse: collapse;
-            width: 90%;
-        }
         th,
         td {
             color: white;
@@ -27,9 +22,11 @@
     </style>
 </head>
 <body>
-	<div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
+	<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
+    <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back</a>
+	<div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 7%;">
         <table>
-            <tr>
+            <tr style="background-color: #818181;">
             	<th>Activation Status</th>
                 <th>Name</th>
                 <th>USN</th>
@@ -65,8 +62,6 @@
             </tr>
             <%} %>
         </table>
-        <%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
-        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back To Home page</a>
+        
     </div>
 </body>
-</html>

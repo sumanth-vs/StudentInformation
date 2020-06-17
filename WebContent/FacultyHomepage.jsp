@@ -7,9 +7,10 @@
 	<head>
 		<title>Student Information Portal</title>
 		<link rel="icon" href="Assets/sip_logo_fav.gif" type="image/gif" sizes="16x16">
-		<link rel="stylesheet" type ="text/css" href="CSS/mainStyle.css">
+		<link rel="stylesheet" type ="text/css" href="CSS/facultyStyle.css">
 		<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
-		<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">	</head>
+		<link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">	
+	</head>
 
 	<body>
 		<header>
@@ -65,7 +66,7 @@
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="/StudentInformation/StudentServlet?action=getStudentProjects">Projects, Assignments.</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getFacultyProjects">Projects, Assignments.</a></h2>
 				<p>
 					Students can submit them all from one place
 				</p>

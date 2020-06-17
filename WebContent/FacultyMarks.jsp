@@ -33,11 +33,11 @@
 <body>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">Monitor Your Students' Marks</h1>
     <div>
-        <img style="max-width: 150px; position: absolute; left: 41.5%; border-radius: 20px" src="Assets/teacher.jpg" alt="SurajFail">
+        <img style="max-width: 150px; position: absolute; left: 43%; border-radius: 20px" src="Assets/teacher.jpg" alt="SurajFail">
     </div>
     
     <div style="margin: 80px;">
-        <h2 style="font-family: Helvetica; color: white; position: absolute; top: 57%;">
+        <h2 style="font-family: Helvetica; color: red; position: absolute; top: 57%;">
             Semester : <%=fb.getSem() %> | Section : <%=fb.getSection() %> |Branch : <%=fb.getCourse() %>
         </h2>
     </div>
@@ -45,14 +45,13 @@
 
     <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
         <table>
-            <tr>
+            <tr style="background-color: #818181;">
                 <th>Student Name</th>
                 <th>Test 1 (/20)</th>
                 <th>Test 2 (/20)</th>
                 <th>Test 3 (/20)</th>
                 <th>LAB/AAT (/10)</th>
                 <th>CIE(/50)</th>
-                <th>Edit</th>
             </tr>
             <%while(itr.hasNext()){ %>
 			<%FacultyBean fb1 = (FacultyBean)itr.next(); %>
@@ -63,7 +62,6 @@
                 <td><%=fb1.getCie3() %></td>
                 <td><%=fb1.getLab() %></td>
                 <td>best of 3 + lab</td>
-                <td><a href="/StudentInformation/StudentServlet?action=editFacultyMarks&stdId=<%=fb1.getStudent_id()%>&classID=<%=fb1.getClass_id()%>&subID=<%=fb1.getSub_id()%>" style="text-decoration: none; color: white;">Edit</a></td>           
             </tr>
             <%} %>
         </table>

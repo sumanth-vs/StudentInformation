@@ -1,6 +1,6 @@
-<%@ page language="java" import="com.bms.bean.*, java.util.*"%>
+<%@ page language="java" import="com.bms.bean.*, java.util.*, java.lang.Math"%>
 <%ArrayList<FacultyBean> attList = (ArrayList<FacultyBean>)request.getAttribute("attL"); %>
-<%Iterator itr = attList.iterator(); %>
+<%Iterator<FacultyBean> itr = attList.iterator(); %>
 <%FacultyBean fb = (FacultyBean)request.getAttribute("fb"); %>
 
 
@@ -15,7 +15,7 @@
             background: black;
         }
         table {
-            margin: 75px;
+            margin-left: 54px;
             border-collapse: collapse;
             width: 90%;
         }
@@ -35,13 +35,13 @@
 
 <body>
 
-    <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px; margin: 25px;">Monitor Your Students' Attendance</h2>
+    <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px; margin: 25px;">Monitor Your Students' Attendance</h1>
     <div>
         <img style="max-width: 100px; position: absolute; left: 43%;  border-radius: 20px" src="Assets/teacher.jpg" alt="SurajFail">
     </div>
     
     <div style="margin: 80px;">
-        <h2 style="font-family: Helvetica; color: white; position: absolute; top: 52%;">
+        <h2 style="font-family: Helvetica; color: red; position: absolute; top: 45%; left: 20%">
             Semester : <%=fb.getSem() %> | Section : <%=fb.getSection() %> |Branch : <%=fb.getCourse() %>
         </h2>
     </div>
@@ -54,7 +54,6 @@
                 <th>Classes Conducted</th>
                 <th>Classes Attended</th>
                 <th>Attendance Percentage</th>
-                <th>Edit</th>
             </tr>
 
 			<%while(itr.hasNext()){ %>
@@ -63,8 +62,7 @@
                 <td><%=fb1.getStudent_name() %></td>
                 <td><%=fb1.getClasses_cond() %></td>
                 <td><%=fb1.getClasses_attend() %></td>
-                <td><%=(double) fb1.getClasses_attend()/fb1.getClasses_cond() * 100 %></td>        
-                <td><a href="/StudentInformation/StudentServlet?action=editFacultyAttendance">Edit</a></td>        
+                <td><%=Math.round((double) fb1.getClasses_attend()/fb1.getClasses_cond() * 100) %></td>            
             </tr>
             <%} %>
         </table>

@@ -67,14 +67,21 @@ body{
     text-decoration: none;
     color: white;
     text-align: center;
-    position: relative;
-    top: -25px;
+    position: absolute;
+    top: 70%;
+    left: 46%;
 }
 
 .box input[type = "submit"]:hover{
 
     background:   rgb(26, 224, 115);
     color: black;
+}
+
+.subbutton{
+	position: absolute;
+	top: 78%;
+	left: 44%
 }
 
 .newuser{
@@ -84,7 +91,7 @@ body{
     position: absolute;
     font-size: 16px;
     top: 80%;
-    left: 44%;
+    left: 45%;
 }
 
 
