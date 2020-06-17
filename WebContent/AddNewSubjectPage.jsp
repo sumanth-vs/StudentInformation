@@ -26,6 +26,7 @@
             <input type="submit" name="Login" placeholder="Add Subject">
 
         </form>
-
+		<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
+        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back To Home page</a>
     </body>
 </html>

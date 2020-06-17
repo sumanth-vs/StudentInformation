@@ -151,4 +151,24 @@ public class UserDB {
 		return ub;
 	}
 
+	public UserBean getAdminHomepage(UserBean ub) {
+
+		Connection con = getConnection();		
+		String sql = "select user_name from user_t where user_id = ?";
+		
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, ub.getUserID());
+			ResultSet rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				ub.setUserName(rs.getString(1));
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return ub;
+	}
+
 }

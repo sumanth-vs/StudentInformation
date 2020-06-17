@@ -32,6 +32,7 @@
             <input type="submit" name="Add Class" placeholder="Add Class">
 
         </form>
-
+		<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
+        <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back To Home page</a>
     </body>
 </html>

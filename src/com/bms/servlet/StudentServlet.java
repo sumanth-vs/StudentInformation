@@ -131,7 +131,7 @@ public class StudentServlet extends HttpServlet {
 				assignSubject(request, response);
 			}
 		} 
-		
+
 		else {
 		}
 	}
@@ -161,7 +161,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void getAssignFacultyPage(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
-		
+
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AssignFacultyPage.jsp");
 		rd.forward(request, response);
 	}
@@ -221,6 +221,14 @@ public class StudentServlet extends HttpServlet {
 
 	private void getAdminHomepage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+		UserBean ub = new UserBean();
+		ub.setUserID(Integer.parseInt(request.getParameter("user_ID"))); UserAction
+		ua = new UserAction(); ub = ua.getAdminHomepage(ub);
+		request.setAttribute("ub", ub);
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AdminHomepage.jsp");
+		rd.forward(request, response);
 
 	}
 

@@ -80,8 +80,8 @@ public class AdminDB {
 
 		int user_id = 0;
 		String sql1 = "select user_id.nextval from dual";
-		String sql2 = "insert into user_t values(?, ?, ?, ?, ?)";
-		String sql3 = "insert into faculty_t values(?, ?, ?, ?)";
+		String sql2 = "insert into USER_T values(?, ?, ?, ?, ?)";
+		String sql3 = "insert into FACULTY_T values(?, ?, ?, ?)";
 
 		try {
 			PreparedStatement pstmt1 = con.prepareStatement(sql1);

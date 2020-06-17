@@ -1,5 +1,6 @@
 package com.bms.actions;
 
+import javax.security.auth.message.callback.SecretKeyCallback.Request;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -55,6 +56,18 @@ public class UserAction extends HttpServlet{
 		}
 		
 		return ub;
+	}
+
+	public UserBean getAdminHomepage(UserBean ub) {
+
+		UserDB db = new UserDB();
+		
+		UserBean uBean = new UserBean();
+		uBean.setUserID(ub.getUserID());
+		ub = db.getAdminHomepage(ub);
+		uBean.setUserName(ub.getUserName());
+		
+		return uBean;
 	}
 
 

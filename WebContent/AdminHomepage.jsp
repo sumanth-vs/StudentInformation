@@ -2,7 +2,6 @@
 <%UserBean ub = (UserBean) session.getAttribute("ub");%>
 
 
-<!DOCTYPE html>
 <html>
 	<head>
 		<title>Student Information Portal</title>
@@ -51,7 +50,7 @@
 				<img src="Assets\attendace_img.jpg">
 			</div>
 			<div class="attendance">
-				<h2><a href="/StudentInformation/StudentServlet?action=activateStudentAccount">Change Account Status</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=activateStudentAccount&user_ID=<%=ub.getUserID()%>">Change Account Status</a></h2>
 			</div>
 		</section>
 
@@ -61,7 +60,7 @@
 				<img class = "marks-img" src="Assets\aplus.jpg">
 			</div>
 			<div class="marks">
-				<h2><a href="/StudentInformation/StudentServlet?action=getNewFacultyPage">Add Faculty</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getNewFacultyPage&user_ID=<%=ub.getUserID()%>">Add Faculty</a></h2>
 			</div>
 		</section>
 
@@ -71,7 +70,7 @@
 				<img class = "project-img" src="Assets\project.jpg">
 			</div>
 			<div class="project">
-				<h2><a href="/StudentInformation/StudentServlet?action=getAddNewSubjectPage">Add Subjects</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=getAddNewSubjectPage&user_ID=<%=ub.getUserID()%>">Add Subjects</a></h2>
 			</div>
 		</section>
 
@@ -82,15 +81,15 @@
 					<img class = "complete-stud-img" src="Assets/complete-student-records.webp">
 				</div>
 				<div class="complete-stud">
-					<h2><a href="/StudentInformation/StudentServlet?action=getAddNewClassPage">Add Classes</a></h2>
+					<h2><a href="/StudentInformation/StudentServlet?action=getAddNewClassPage&user_ID=<%=ub.getUserID()%>">Add Classes</a></h2>
 				</div>
 				
 				<div class="fac-sub">
-					<h2><a href="/StudentInformation/StudentServlet?action=getAssignFacultyPage">Assign Faculty To Subject</a></h2>
+					<h2><a href="/StudentInformation/StudentServlet?action=getAssignFacultyPage&user_ID=<%=ub.getUserID()%>">Assign Faculty To Subject</a></h2>
 				</div>
 				
 				<div class="stud-sub">
-					<h2><a href="/StudentInformation/StudentServlet?action=getAssignSubjectPage">Assign Subject To Students</a></h2>
+					<h2><a href="/StudentInformation/StudentServlet?action=getAssignSubjectPage&user_ID=<%=ub.getUserID()%>">Assign Subject To Students</a></h2>
 				</div>
 		</section>
 
