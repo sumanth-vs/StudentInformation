@@ -1,4 +1,4 @@
-<%@ page language="java" import="com.bms.bean.*, java.util.*"%>
+<%@ page language="java" import="com.bms.bean.*, java.util.*, java.lang.Math"%>
 <%ArrayList<AcademicsBean> marksList = (ArrayList<AcademicsBean>)request.getAttribute("ml"); %>
 <%Iterator itr = marksList.iterator(); %>
 <%UserBean ub = (UserBean) session.getAttribute("ub");%>
@@ -68,7 +68,11 @@
                 <td><%=ab.getCie2() %></td>
                 <td><%=ab.getCie3() %></td>
                 <td><%=ab.getLab() %></td>
-                <td>best of 3 + lab</td>
+                <%double a, b, c; %>
+                <%a = ab.getCie1(); %>
+                <%b = ab.getCie2(); %>
+                <%c = ab.getCie3(); %>
+                <td><%=Math.round(ab.getLab() + )%></td>
             </tr>
             <%} %>
         </table>
