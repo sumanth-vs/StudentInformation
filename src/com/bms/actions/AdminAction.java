@@ -57,4 +57,30 @@ public class AdminAction {
 		
 		db.addNewClass(cb);
 	}
+
+	public void assignFaculty(HttpServletRequest request, HttpServletResponse response) {
+		
+		AdminDB db = new AdminDB();
+		FacultyBean fb = new FacultyBean();
+		
+		fb.setFac_id(Integer.parseInt(request.getParameter("fac_id")));
+		fb.setSub_id(Integer.parseInt(request.getParameter("sub_id")));
+		fb.setClass_id(Integer.parseInt(request.getParameter("class_id")));
+		
+		
+		db.assignFaculty(fb);
+	}
+
+	public void assignSubject(HttpServletRequest request, HttpServletResponse response) {
+
+		AdminDB db = new AdminDB();
+		StudentBean sb = new StudentBean();
+		
+		sb.setStdid(Integer.parseInt(request.getParameter("std_id")));
+		sb.setSub_id(Integer.parseInt(request.getParameter("sub_id")));
+
+		
+		
+		db.assignSubject(sb);
+	}
 }

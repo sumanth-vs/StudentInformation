@@ -118,15 +118,59 @@ public class StudentServlet extends HttpServlet {
 			else if(action.equals("addNewClass")) {
 				addNewClass(request, response);
 			}
-		} else {
+			else if(action.equals("getAssignFacultyPage")) {
+				getAssignFacultyPage(request, response);
+			}
+			else if(action.equals("assignFaculty")) {
+				assignFaculty(request, response);
+			}
+			else if(action.equals("getAssignSubjectPage")) {
+				getAssignSubjectPage(request, response);
+			}
+			else if(action.equals("assignSubject")) {
+				assignSubject(request, response);
+			}
+		} 
+		
+		else {
 		}
+	}
+
+	private void assignSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		AdminAction aa = new AdminAction();
+		aa.assignSubject(request, response);
+		// Should -> Home Page
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AssignSubjectPage.jsp");
+		rd.forward(request, response);
+	}
+
+	private void getAssignSubjectPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AssignSubjectPage.jsp");
+		rd.forward(request, response);
+	}
+
+	private void assignFaculty(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+
+		AdminAction aa = new AdminAction();
+		aa.assignFaculty(request, response);
+		// Should -> Home Page
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AssignFacultyPage.jsp");
+		rd.forward(request, response);
+	}
+
+	private void getAssignFacultyPage(HttpServletRequest request, HttpServletResponse response)  throws ServletException, IOException{
+		
+		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AssignFacultyPage.jsp");
+		rd.forward(request, response);
 	}
 
 	private void getAddNewClassPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
 		RequestDispatcher rd = getServletContext().getRequestDispatcher("/AddNewClassPage.jsp");
 		rd.forward(request, response);
-		
+
 	}
 
 	private void getNewFacultyPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -141,7 +185,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void addNewClass(HttpServletRequest request, HttpServletResponse response)throws ServletException, IOException {
-		
+
 		AdminAction aa = new AdminAction();
 		aa.addNewClass(request, response);
 		// Should -> Home Page
@@ -150,7 +194,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void addNewSubject(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
+
 		AdminAction aa = new AdminAction();
 		aa.addNewSubject(request, response);
 		// Should -> Home Page
@@ -159,7 +203,7 @@ public class StudentServlet extends HttpServlet {
 	}
 
 	private void addNewFaculty(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-		
+
 		AdminAction aa = new AdminAction();
 		aa.addNewFaculty(request, response);
 		// Should -> Home Page

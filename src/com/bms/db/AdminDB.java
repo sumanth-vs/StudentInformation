@@ -6,6 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.sql.Types;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -155,7 +156,7 @@ public class AdminDB {
 
 
 	public void addNewClass(ClassBean cb) {
-		
+
 		Connection con = getConnection();
 
 		int class_id = 0;
@@ -180,6 +181,59 @@ public class AdminDB {
 			pstmt2.setString(5, cb.getCourse_code());
 
 			int res = pstmt2.executeUpdate();
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	public void assignFaculty(FacultyBean fb) {
+
+		Connection con = getConnection();
+
+		String sql = "insert into faculty_sub_class_t values(?, ?, ?)";
+
+
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, fb.getFac_id());
+			pstmt.setInt(2, fb.getSub_id());
+			pstmt.setInt(3, fb.getClass_id());
+
+			int res = pstmt.executeUpdate();
+
+
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+
+
+
+	public void assignSubject(StudentBean sb) {
+
+		Connection con = getConnection();
+	    int sqlType = Types.NULL;
+		String sql = "insert into stud_sub values(?, ?, ?, ?, ?, ?, ?, ?)";
+
+
+		try {
+			PreparedStatement pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, sb.getStdid());
+			pstmt.setInt(2, sb.getSub_id());
+			pstmt.setNull(3, sqlType);
+			pstmt.setNull(4, sqlType);
+			pstmt.setNull(5, sqlType);
+			pstmt.setNull(6, sqlType);
+			pstmt.setNull(7, sqlType);
+			pstmt.setNull(8, sqlType);
+
+			int res = pstmt.executeUpdate();
 
 
 

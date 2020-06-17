@@ -84,7 +84,15 @@
 				<div class="complete-stud">
 					<h2><a href="/StudentInformation/StudentServlet?action=getAddNewClassPage">Add Classes</a></h2>
 				</div>
-			</section>
+				
+				<div class="fac-sub">
+					<h2><a href="/StudentInformation/StudentServlet?action=getAssignFacultyPage">Assign Faculty To Subject</a></h2>
+				</div>
+				
+				<div class="stud-sub">
+					<h2><a href="/StudentInformation/StudentServlet?action=getAssignSubjectPage">Assign Subject To Students</a></h2>
+				</div>
+		</section>
 
 
 
