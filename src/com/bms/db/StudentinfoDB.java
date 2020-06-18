@@ -173,7 +173,8 @@ public class StudentinfoDB {
 				pstmt4.setInt(2, 3);
 				pstmt4.setString(3, sb.getUsername());
 				pstmt4.setString(4, sb.getPassword());
-				pstmt4.setInt(5, sb.getStatus());
+				//set flag to 1 for now
+				pstmt4.setInt(5, 1);
 				
 				count = pstmt4.executeUpdate();
 				

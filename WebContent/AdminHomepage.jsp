@@ -50,7 +50,7 @@
 				<img src="Assets\attendace_img.jpg">
 			</div>
 			<div class="attendance">
-				<h2><a href="/StudentInformation/StudentServlet?action=activateStudentAccount&user_ID=<%=ub.getUserID()%>">Change Account Status</a></h2>
+				<h2><a href="/StudentInformation/StudentServlet?action=activateStudentAccount&user_ID=<%=ub.getUserID()%>">Verify Student Details</a></h2>
 			</div>
 		</section>
 
