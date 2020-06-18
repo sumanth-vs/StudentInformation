@@ -63,15 +63,15 @@
             	<%while(itr.hasNext()){ %>
             	<%AcademicsBean ab = (AcademicsBean)itr.next(); %>
                 <td><%=ab.getSubject() %></td>
-                <td><%=ab.getCie1() %></td>
-                <td><%=ab.getCie2() %></td>
-                <td><%=ab.getCie3() %></td>
+                <td><%=ab.getCie1() / 2 %></td>
+                <td><%=ab.getCie2() / 2 %></td>
+                <td><%=ab.getCie3() / 2 %></td>
                 <td><%=ab.getLab() %></td>
                 <%double a, b, c; %>
-                <%a = ab.getCie1(); %>
-                <%b = ab.getCie2(); %>
-                <%c = ab.getCie3(); %>
-                <td>best of 3 + lab</td>
+                <%a = ab.getCie1() / 2; %>
+                <%b = ab.getCie2() / 2; %>
+                <%c = ab.getCie3() / 2; %>
+                <td><%=ab.getLab() + (c > (a>b ? a:b) ? c:((a>b) ? a:b)) + ((a >= b && a >= c) ? ((b >= c) ? b : c) : ((b >= c) ? ((a >= c) ? a : c) : ((a >= b) ? a : b))) %></td>
             </tr>
             <%} %>
         </table>

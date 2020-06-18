@@ -14,7 +14,7 @@
     <body>
         <form class="box" action="Submit.html" method="POST">
             <h1>Contact Your Admin for further Info</h1>
-            <h2 >Email has been sent</h2>
+            <h2 >Admin Has Been Notified</h2>
         </form>
     </body>
 </html>

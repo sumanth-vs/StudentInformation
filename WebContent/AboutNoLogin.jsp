@@ -49,8 +49,8 @@
 
 
         <section>
-            <h1 style="position: absolute;top: 210%;left: 35%;font-family: 'Kulim Park', sans-serif; font-size: 100px;">Vision</h1>
-            <div style="position: absolute;top: 230%; left: 30%;" class="vision">
+            <h1 style="position: absolute;top: 229%;left: 40%;font-family: 'Kulim Park', sans-serif; font-size: 100px;">Vision</h1>
+            <div style="position: absolute;top: 249%; left: 35%;" class="vision">
                 <p>
                     Organizing Student's Information
                 </p>
@@ -66,21 +66,33 @@
 
 
         <section>
-            <div class="descript">
-                <p>A Teacher's Job is hard. That's no secret. But what you may not know is that a lot of times,
-                    a Teacher has a very hard time managing all the formalities that come with teaching. As such, 
-                    the time dedicated to improve and prepare meticulous study materials and courses for students 
-                    decreases sharply. 
-
-                    This is where SIP comes into picture.
-
-                    With easy and fast management, the teacher can focus on her students and not worry 
-                    about the nagging, excruciating management.
+            <h1 style="position: absolute;top: 330%;left: 40%;font-family: 'Kulim Park', sans-serif; font-size: 100px;">Mission</h1>
+            <div style="position: absolute;top: 350%; left: 35%;" class="vision">
+                <p>
+                    Enabling Teachers to Focus on,
                 </p>
-
+                <p>
+                    Enabling Students to Access 
+                </p>
+                <p>
+                    Critical Information
+                </p>
             </div>
 
-
+        </section>
+        
+        
+        
+        <section>
+            <h1 style="position: absolute;top: 400%;left: 40%;font-family: 'Kulim Park', sans-serif; font-size: 100px;"></h1>
+            <div style="position: absolute;top: 400%; left: 40%;" class="vision">
+                <p style="font-size: 40px;">&copy; 2020 SIP Labs Inc.
+                </p>
+                <p>
+                </p>
+                <p>
+                </p>
+            </div>
 
         </section>
 

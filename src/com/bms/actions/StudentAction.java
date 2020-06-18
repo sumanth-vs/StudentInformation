@@ -154,7 +154,7 @@ public class StudentAction extends HttpServlet {
 			//This is to check for existing username/usn
 			if(sb.getGenErr() == 1) {
 				if(sb.getUsnErr() == 1) {
-					sb.setUsnErrMsg("USN Already Exists");
+					sb.setUsnErrMsg("USN Already Exists - Invalid USN");
 				}
 				if(sb.getUserNameErr() == 1) {
 					sb.setUserNameErrMsg("UserName Already Exists");

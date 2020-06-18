@@ -43,6 +43,11 @@
                 
             </tr>
             <tr>
+                <td>Linear Algebra</td>
+              <td><a href = "https://schoology.com" target="_blank" style="text-decoration:  none;color:rgb(29, 107, 196)">Edmodo</a></td>
+        
+            </tr>
+            <tr>
                 <td>Analysis And Design Of Algorithms</td>
               <td><a href = "https://new.edmodo.com/groups/logic-design-3rd-semester-19-20-odd-30418335" target="_blank" style="text-decoration:  none;color:rgb(29, 107, 196)">Edmodo</a></td>
         

@@ -24,7 +24,7 @@ public class Validator {
 				flag = m.matches();
 			}
 		}
-		return true;
+		return flag;
 	}
 	
 	//Works
@@ -47,7 +47,7 @@ public class Validator {
 				flag = m.matches();
 			}
 		}
-		return true;
+		return flag;
 	}
 	
 	//Works
@@ -70,7 +70,7 @@ public class Validator {
 				flag = m.matches();
 			}
 		}
-		return true;
+		return flag;
 	}
 	
 	//Works
