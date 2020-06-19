@@ -31,7 +31,7 @@
 </head>
 
 <body>
-	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>">Back</a></h6>
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getStudentHomepage&stdID=<%=ub.getUserID()%>"><img style="width: 50px;" src="Assets/back.png"></a></h6>
     <h1 style="color: white; font-family: 'Lucida Sans'; text-align: center; padding: 10px;">Monitor Your Marks</h1>
     <div>
         <img style="max-width: 250px; position: absolute; left: 70%; border-radius: 20px" src="Assets/user.png" alt="SurajFail">

@@ -35,8 +35,7 @@ public class UserDB {
 		
 		String sql = "select count(user_id) from user_t where user_name = ? and password = ?";
 		String sql1 = "select user_type, user_id from user_t where user_name = ? and password = ?";
-		//String sql2 = "select student_name from student_t where student_id = ?";
-		//String sql3 = "select fac_name from faculty_t where fac_id = ?";
+
 		
 		Connection con = getConnection();
 		int count = 0;

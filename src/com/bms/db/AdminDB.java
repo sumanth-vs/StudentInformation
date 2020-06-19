@@ -40,7 +40,7 @@ public class AdminDB {
 	public ArrayList<StudentBean> activateStudentAccount(HttpServletRequest request, HttpServletResponse response) {
 
 		Connection con = getConnection();		
-		String sql = "select s.student_name, s.usn, s.stud_email, s.stud_mob, s.stud_address, s.father_name, s.father_mob, s.mother_name, s.mother_mob, s.class_id, u.user_flag from stud_t s,  user_t u where s.student_id = u.user_id and u.user_type = 3";
+		String sql = "select s.student_name, s.usn, s.stud_email, s.stud_mob, s.stud_address, s.father_name, s.father_mob, s.mother_name, s.mother_mob, s.class_id, u.user_flag, s.student_id from stud_t s,  user_t u where s.student_id = u.user_id and u.user_type = 3";
 		ArrayList<StudentBean> studentList = new ArrayList<StudentBean>();
 
 
@@ -61,6 +61,7 @@ public class AdminDB {
 				sb.setMother_mob(rs.getString(9));
 				sb.setClass_id(rs.getInt(10));
 				sb.setStatus(rs.getInt(11));
+				sb.setStdid(rs.getInt(12));
 
 				studentList.add(sb);
 			}

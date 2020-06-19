@@ -34,7 +34,7 @@
 
 <body>
 
-	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>">Back</a></h6>
+	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getFacultyHomepage&facID=<%=ub.getUserID()%>"><img style="width: 50px;" src="Assets/back.png"></a></h6>
 
     <div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 57%;">
         <table>

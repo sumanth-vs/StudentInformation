@@ -12,7 +12,7 @@
     </head>
 
     <body>
-    	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation">Home</a></h6>
+    	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation"><img style="width: 50px;" src="Assets/back.png"></a></h6>
     		
         <form class="box" action="/StudentInformation/StudentServlet" method="POST" >
         	<input type="hidden" name="action" value="verifyLogin">

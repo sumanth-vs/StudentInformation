@@ -79,8 +79,9 @@
 
     <body>
     
-    	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getLoginPage">Back</a></h6>
-        <form class="box" action="/StudentInformation/StudentServlet" method="POST"">
+    	
+    	<h6><a style= "color: white; text-decoration: none; font-family: 'Lucida Sans'; font-size: 15px; text-align: center; padding: 10px;" href="/StudentInformation/StudentServlet?action=getLoginPage"><img style="width: 50px;" src="Assets/back.png"></a></h6>
+        <form class="box" action="/StudentInformation/StudentServlet" method="POST">
         	<input type="hidden" name="action" value="registerStudentDetails">
         	<input type="hidden" name="status" value="0">
             <h1>Enter Details</h1>

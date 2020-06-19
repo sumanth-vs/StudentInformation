@@ -1,6 +1,6 @@
 <%@ page language="java" import="com.bms.bean.StudentBean, java.util.*"%>
 <%ArrayList<StudentBean> studentList = (ArrayList<StudentBean>)request.getAttribute("sList"); %>
-<%Iterator itr = studentList.iterator(); %>
+<%Iterator<StudentBean> itr = studentList.iterator(); %>
 
 <html>
 <head>
@@ -23,11 +23,12 @@
 </head>
 <body>
 	<%int user_ID = Integer.parseInt(request.getParameter("user_ID")); %>
-    <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;">Back</a>
+    <a href="/StudentInformation/StudentServlet?action=getAdminHomepage&user_ID=<%=user_ID%>" style="text-decoration: none; color: white;"><img style="width: 50px;" src="Assets/back.png"></a>
 	<div style="overflow-x:auto; font-family: Verdana, Geneva, Tahoma, sans-serif; position: absolute;top: 7%;">
         <table>
             <tr style="background-color: #818181;">
             	<th>Activation Status</th>
+            	<th>Student ID</th>
                 <th>Name</th>
                 <th>USN</th>
                 <th>Email</th>
@@ -43,11 +44,12 @@
 				<%StudentBean sb = (StudentBean)itr.next(); %>
             <tr>
             	<%if(sb.getStatus() == 0){ %>
-            			<td>Not Active</td>
+            			<td style="color: red">Not Active</td>
             			<%} %>
             	<%if(sb.getStatus() == 1){ %>
-            			<td>Active</td>
+            			<td style="color: green">Active</td>
             			<%} %>
+            	<td><%=sb.getStdid() %></td>
                 <td><%=sb.getName() %></td>
                 <td><%=sb.getUsn() %></td>
                 <td><%=sb.getEmail() %></td>
